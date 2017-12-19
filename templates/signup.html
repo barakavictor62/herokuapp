@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="../static/signup.css"/>
+{% endblock extra_head %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 convince">
+      <h1 class="cover-heading">Cover your page.</h1>
+      <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+      <p class="lead">
+        <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+      </p>
+    </div>
+    <div class="col-lg-5 card signup-form">
+      <div class="card-body">
+        <h3 class="card-title" >Create Account</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <br>
+            <button type="submit" class="btn btn-primary form-control">Sign Up</button>
+            {% if form.errors %}
+            {% for fields in form %}
+            {{ fields.errors }}
+            {% endfor %}
+            {% endif %}
+          </form>
+          <p class="card-text">Already Have an Account? <a href="/login">Sign In</a> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+{% block scripts %}
+{% endblock %}

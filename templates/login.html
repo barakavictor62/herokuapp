@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="../static/login.css"/>
+{% endblock extra_head %}
+{% block content %}
+<div class="card col-lg-4 login-form">
+  <div class="card-body">
+    <h4 class="card-title">Sign In</h4>
+<form method="post" action="{% url 'login' %}">
+    <div class="panel-body">
+        {% if form.errors %}
+            <p class="alert alert-danger">Please check your username and password and try again.</p>
+        {% endif %}
+        {% if next %}
+            {% if user.is_authenticated %}
+                <p  class="alert alert-danger">Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+            {% else %}
+                <p  class="alert alert-danger">Please login to see this page.</p>
+            {% endif %}
+        {% endif %}
+        {% csrf_token %}
+        <br>
+        <div class="form-group">
+            <div class="input-group margin-bottom-sm inputlg">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                {{ form.username }}
+            </div>
+            <br>
+            <div class="input-group margin-bottom-sm inputlg">
+                <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+                {{ form.password }}</div>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              Remeber me
+            </label>
+          </div>
+        <button type="submit" class="form-control btn btn-primary">Submit</button>
+    <br>
+    <br>
+    </div>
+        <a href="/password_reset">Forgot Password?</a>
+    </div>
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+</div>
+{% endblock %}

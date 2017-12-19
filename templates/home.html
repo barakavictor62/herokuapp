@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block navigation %}
+<!--<ul class="navbar-nav mr-auto">
+  <li class="nav-item active">
+    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+  </li>
+</ul>-->
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="/pricing">Pricing</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Order Content</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Order Website</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/contact">Contact Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="btn btn-primary" href="/login">Sign In</a>
+  </li>
+</ul>
+{% endblock %}
+{%block content %}
+<div class="container-fluid">
+  <div class="row tp-row">
+    <div class="col-lg-12 landing">
+      <div class="overlay">
+      <div class="col-lg-7 row-center">
+        <h2>Welcome to ACE<br> your ideal solution in web design, content and web optimization</h2>
+        <p><a class="btn btn-lg btn-primary letsgo" href="/signup" role="button">Create Account. Its Free!!</a></p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row service">
+      <div class="col-sm-5">
+      <img class="img-responsive center-block icon" src="../static/images/typer.jpg">
+    </div>
+        <div class="col-sm-7">
+            <h2 class="service-header">Content Creation</h2>
+            <p class="lead">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+              Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="row service">
+            <div class="col-sm-7">
+                <h2 class="service-header">Web Design & Development</h2>
+                <p class="lead">
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                  Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                  </p>
+                </div>
+                <div class="col-sm-5">
+              <img class="img-responsive center-block icon" src="../static/images/images.png"/>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="row service">
+              <div class="col-sm-5">
+              <img class="img-responsive center-block icon" src="../static/images/seo.jpg">
+            </div>
+                <div class="col-sm-7">
+                  <h2 class="service-header">Search Engine & web Optimization</h2>
+                      <p class="lead">
+                          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                          Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+                <!-- Three columns of text below the carousel -->
+                <div class="row share-holders">
+                  <div class="container">
+                    <div class="row">
+                  <div class="col-sm-4 share-holder">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                    <h5>Nelson Oyuga</h5>
+                    <p>Owner</p>
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-sm-4 share-holder">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                    <h5>Victor Baraka</h5>
+                    <p>Web Designer and Developer</p>
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-sm-4 share-holder">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                    <h5>Maureen</h5>
+                    <p>Donec sed odio dui.</p>
+                  </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+              </div>
+            </div>
+              <div class="row misc">
+                <div class="container">
+                  <div class="row miscelaneous">
+                  <div class="col-sm-4 box">
+                    <div class="col-lg-10 inner-box">
+                    <h5>Ace</h5>
+                    <p class="about"><em>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                    nascetur ridiculus mus. </em></p>
+                    <a href=""><i class="fa fa-facebook fa-2x social-icons"></i></a>
+                    <a href=""><i class="fa fa-twitter fa-2x social-icons"></i></a>
+                    <a href=""><i class="fa fa-google-plus fa-2x social-icons"></i></a>
+                  </div>
+                  </div>
+                  <div class="col-sm-4 box" id="box-mid">
+                    <div class="col-lg-10 inner-box">
+
+                    <h5>Contacts</h5>
+                    <ul class="mid-footer-ul">
+                   <li><i class="fa fa-inbox"></i>  ace@gmail.com</li>
+                   <li><i class="fa fa-phone-square"></i>  0717260641</li>
+                   <li><i class="fa fa-envelope"></i>  P.O.Box: 00100-27012</li>
+                   <li><i class="fa fa-globe"></i>  Nairobi</li>
+               </ul>
+             </div>
+                  </div>
+                  <div class="col-sm-4 box">
+                    <div class="col-lg-10 inner-box">
+                    <h5>Links</h5>
+               <ul>
+                   <li><a href="">Home</a></li>
+                   <li><a href="">Order Content</a></li>
+                   <li><a href="">Order Website</a></li>
+                   <li><a href="">Blog</a></li>
+                   <li><a href="">Contact Us</a></li>
+                   <li><a href="">Create Account</a></li>
+               </ul>
+             </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="row footer">
+              <footer class="col-lg-12">
+                <p class="float-right">&copy; 2017 Ace Digital, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+              </footer>
+            </div>
+            </div>
+{% endblock content  %}
