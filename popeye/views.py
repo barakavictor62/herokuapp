@@ -8,10 +8,10 @@ def home(request):
     return render(request, "home.html", {})
 
 def myprofile(request):
-    articles = ContentWriting.objects.filter(user_id=request.user.id, is_done=1)
+    """articles = ContentWriting.objects.filter(user_id=request.user.id, is_done=1)
     pending = ContentWriting.objects.filter(user_id=request.user.id, is_done=0)
-    websites = WebsiteBuilding.objects.filter(user_id=request.user.id)
-    return render(request, "myprofile.html", { 'articles': articles, 'pending': pending,'websites': websites})
+    websites = WebsiteBuilding.objects.filter(user_id=request.user.id)"""
+    return render(request, "myprofile.html", {})
 
 def signup(request):
     if request.method == 'POST':
