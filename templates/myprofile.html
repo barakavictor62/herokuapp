@@ -60,9 +60,39 @@
                   <li class="mytab" id="pending"><a>Pending Articles</a></li>
                   <li class="mytab" id="done"><a>Web Jobs</a></li>
               </ul>
+              <div class="done-articles">
+                {% for article in articles %}
+                <div class="card">
+                  <div class="card-body">
+                    <p class="card-title">{{ article.title }}</p>
+                    <p class="crad-text">{{ article.description }}</p>
+              </div>
+            </div>
+            {% endfor %}
           </div>
-        </section>
-      </main>
-    </div>
+          <div class="pending-articles">
+            {% for pending in pending %}
+            <div class="card">
+              <div class="card-body">
+                <p class="card-title">{{ pending.title}}</p>
+                <p class="card-text">{{ pending.description }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="web-requests">
+            {% for web in websites %}
+            <div class="card">
+              <div class="card-body">
+                <p class="card-title">{{ web.title }}</p>
+                <p class="card-text">{{ web.description}}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
+</div>
 {% endblock %}
