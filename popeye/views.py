@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from popeye.forms import SignupForm, ContentRequestForm,EmailForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
 
