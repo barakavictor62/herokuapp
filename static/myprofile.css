@@ -1,3 +1,6 @@
+.profiler{
+  min-height: 100vh;
+}
 .sidebar{
   height: 100%;
 }
