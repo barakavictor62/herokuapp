@@ -1,9 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-{% if user.is_authenticated %}
-<h3>{{ user.first_name}} {{ user.last_name }}</h3>
-<h4>{{ user.email }}</h4>
-<h4>{{ user.profile.country }}</h4
-<button type="button" class="btn btn-success">Add Bio</button>
-{% endif %}
+<div class="container-fluid">
+    <div class="row">
+      <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Reports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Export</a>
+          </li>
+        </ul>
+      </nav>
+      <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+        <section class="row">
+          {% if user.is_authenticated %}
+          <h5>{{ user.first_name}} {{ user.last_name }}</h5>
+          <h5>{{ user.email }}</h5>
+          <h5>{{ user.profile.country }}</h5>
+          <button type="button" class="btn btn-success">Add Bio</button>
+          <button type="button" class="btn btn-primary">Update Profile</button>
+          {% endif %}
+        </section>
+        <section class="row">
+        </section>
+      </main>
+    </div>
+  </div>
 {% endblock %}
