@@ -14,3 +14,6 @@ main{
   border: solid thin gainsboro;
   border-radius: 4vh;
 }
+.holder{
+  padding: 3vh 0 0 0;
+}
