@@ -40,7 +40,8 @@
     <div class="my-articles">
       {% if my_articles %}
       {% for article in my_articles %}
-      <div class="card col-lg-3">
+      <div class="col-lg-3">
+      <div class="card">
           <div class="card-header">
             <p>{{ article.title}}</p>
           </div>
@@ -48,13 +49,15 @@
             <p class="card-text">{{article.description}}</p>
           </div>
         </div>
+      </div>
         {% endfor %}
         {% endif %}
       </div>
       <div class="pending">
         {% if my_web_requests %}
         {% for web in my_web_requests %}
-        <div class="card col-lg-3">
+        <div class="col-lg-3">
+        <div class="card ">
           <div class="card-header">
             <p>{{ web.category }}</p>
           </div>
@@ -62,6 +65,7 @@
             <p class="card-text">{{web.additional_instructions}}</p>
           </div>
         </div>
+      </div>
         {% endfor %}
         {% endif %}
       </div>
