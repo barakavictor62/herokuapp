@@ -15,6 +15,7 @@
   <h5>{{ user.email }}</h5>
   <h5>{{ user.profile.country }}</h5>
   {% if user.profile.bio %}
+  <h5>Bio:</h5>
   <p class="col-lg-5 rounded" id="bio">{{user.profile.bio}}</p>
   {% endif %}
   {% if not user.profile.bio %}
