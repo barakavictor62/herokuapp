@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="../static/myprofile.css">
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row profiler">
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a class="nav-link" href="/myProfile"><i class="fa fa-home fa-2x fa-fw link-icons"></i>Home</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" href="/edit_profile"> <i class="fa fa-user fa-2x fa-fw link-icons"></i>Edit Profile</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" href="/mywallet"><i class="fa fa-suitcase fa-2x fa-fw link-icons"></i>My Wallet</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" href="/articles"><i class="fa fa-file-text fa-2x fa-fw link-icons"></i>Get Article Written</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" href="/web"><i class="fa fa-code fa-2x fa-fw link-icons"></i>Order a Website</a>
+          </li>
+          <li class="list-group-item">
+            <a  class="nav-link" href="/password"><i class="fa fa-wrench fa-2x fa-fw link-icons"></i>Change Password</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" href="#"> <i class="fa fa-question-circle fa-2x fa-fw link-icons"></i>Help</a>
+          </li>
+          <li class="list-group-item">
+            <a class="btn btn-primary form-control" href="/logout"> <i class="fa fa-sign-out"> Sign Out </i></a>
+          </li>
+        </ul>
+      </div>
+      <main role="main" class="col-sm-9">
+        {% block user-info %}
+        
+      {% endblock %}
+    </main>
+  </div>
+</div>
+{% endblock %}
