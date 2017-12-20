@@ -1,17 +1,1 @@
-{% extends 'test.html' %}
-{% block profiledata %}
-    <div class="col-lg-9 article-panel-holder">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>Post a Web Development Request</h4>
-        </div>
-        <div class="panel-body">
-        <form method="post" action="{% url 'web' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary pull-right">Post <i class="fa fa-send"></i></button>
-        </form>
-            </div>
-    </div>
-    </div>
-{% endblock profiledata %}
+{% extends 'base-profile.html' %}
