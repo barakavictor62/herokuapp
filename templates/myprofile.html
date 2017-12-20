@@ -15,7 +15,6 @@
   <h5>{{ user.email }}</h5>
   <h5>{{ user.profile.country }}</h5>
   {% if user.profile.bio %}
-  {{bio.bio.label_tag}}
   <p class="col-lg-5">{{bio.bio}}</p>
   {% endif %}
   {% if not user.profile.bio %}
