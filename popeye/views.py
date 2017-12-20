@@ -9,9 +9,9 @@ def home(request):
     return render(request, "home.html", {})
 
 def myprofile(request):
-    extra = ProfileInfo(instance=request.user.profile)
-    myarticles = ContentWriting.objects.filter(user_id=request.user.id)
-    return render(request, "myprofile.html", {"bio":extra})
+    my_articles = ContentWriting.objects.filter(user_id=request.user.id)
+    my_web_requests = WebsiteBuilding.objects.filter(user_id=request.user.id)
+    return render(request, "myprofile.html", {my_articles":my_articles, "my_web_requests":my_web_requests})
 
 def signup(request):
     if request.method == 'POST':
