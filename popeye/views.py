@@ -69,7 +69,18 @@ def articles(request):
         return render(request, 'articles.html', {"form": form})
 
 def web(request):
-    return render(request, "web.html", {})
+    if request.method == 'POST':
+        form = WebsiteRequestForm(request.POST)
+        if form.is_valid():
+            web = form.save(commit=False)
+            web.user_id = request.user.id
+            web.save()
+            return redirect('/web')
+        else:
+            return render(request, "web.html", {'form': form})
+    else:
+        form = WebsiteRequestForm()
+        return render(request, "web.html", {"form": form})
 
 def contact(request):
     if request.method == 'POST':
