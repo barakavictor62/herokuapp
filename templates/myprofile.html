@@ -37,6 +37,7 @@
       </li>
     </ul>
 </div>
+{% if my_articles %}
 {% for article in my_articles %}
 <div class="card">
   <div class="card-body">
@@ -45,6 +46,8 @@
   </div>
 </div>
 {% endfor %}
+{% endif %}
+{% if my_web_requests %}
 {% for web in my_web_requests %}
 <div class="card">
   <div class="card-body">
@@ -53,5 +56,6 @@
   </div>
 </div>
 {% endfor %}
+{% endif %}
 </section>
 {% endblock %}
