@@ -55,10 +55,10 @@
         {% for web in my_web_requests %}
         <div class="card col-lg-3">
           <div class="card-header">
-            <p>{{ web.title}}</p>
+            <p>{{ web.category }}</p>
           </div>
           <div class="card-body">
-            <p class="card-text">{{web.description}}</p>
+            <p class="card-text">{{web.additional_instructions}}</p>
           </div>
         </div>
         {% endfor %}
