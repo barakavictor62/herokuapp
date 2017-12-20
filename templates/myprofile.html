@@ -14,8 +14,12 @@
     <h5>{{ user.first_name}} {{ user.last_name }}</h5>
   <h5>{{ user.email }}</h5>
   <h5>{{ user.profile.country }}</h5>
+  {% if user.profile.bio %}
   <p class="col-lg-3 well">{{user.profile.bio}}</p>
+  {% endif %}
+  {% if not user.profile.bio %}
   <button type="button" class="btn btn-success">Add Bio</button>
+  {% endif %}
   {% endif %}
 </div>
 </section>
