@@ -29,7 +29,21 @@ def signup(request):
         return render(request, "signup.html",{'form': form})
 
 def edit_profile(request):
-    return render(request, "edit_profile.html", {})
+    if request.method == 'POST':
+        profile = UserChange(request.POST, instance=request.user)
+        extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
+        if profile.is_valid() and extra.is_valid():
+            profile.save()
+            extra.save()
+            return redirect('/edit_profile')
+        else:
+            return render(request, "edit_profile.html", {'form': profile, 'form2': extra})
+    else:
+        profile = UserChange(instance=request.user)
+        extra = ProfileInfo(instance=request.user.profile)
+        return render(request, "edit_profile.html",
+                      {'form': profile,
+                       'form2': extra})
 
 def mywallet(request):
     return render(request, "mywallet.html", {})
