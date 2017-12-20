@@ -14,8 +14,8 @@ $(document).ready(function() {
     });
 
     $(".mytab").click(function () {
-        $(this).siblings().find("a").removeClass("active");
-        $(this).find("a").addClass("active");
+        /**$(this).siblings().find("a").removeClass("active");
+        $(this).find("a").addClass("active");**/
         $("."+$(this).attr("id")).css({"display":"block"}).siblings().hide();
 
 
