@@ -9,6 +9,7 @@ def home(request):
 
 def myprofile(request):
     extra = ProfileInfo(instance=request.user.profile)
+    myarticles = ContentWriting.objects.filter(user_id=request.user.id)
     return render(request, "myprofile.html", {"bio":extra})
 
 def signup(request):
