@@ -10,3 +10,6 @@ main{
 #user-data{
   margin: 2vh;
 }
+#bio{
+  border: solid thin;
+}
