@@ -55,7 +55,18 @@ def passwordchange(request):
     return render(request, "passwordchange.html", {})
 
 def articles(request):
-    return render(request, "articles.html", {})
+    if request.method == 'POST':
+        form = ContentRequestForm(request.POST)
+        if form.is_valid():
+            writing = form.save(commit=False)
+            writing.user_id = request.user.id
+            writing.save()
+            return redirect('/articles')
+        else:
+            return render(request, "articles.html", {'form': form})
+    else:
+        form = ContentRequestForm()
+        return render(request, 'articles.html', {"form": form})
 
 def web(request):
     return render(request, "web.html", {})
