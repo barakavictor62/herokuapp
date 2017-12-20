@@ -32,7 +32,7 @@
       <li class="nav-item mytab" id="pending">
         <a class="nav-link" href="#" >Pending Articles</a>
       </li>
-      <li class="nav-item mytab" id="done">
+      <li class="nav-item mytab" id="websites">
         <a class="nav-link" href="#" >Web Jobs</a>
       </li>
     </ul>
@@ -54,6 +54,22 @@
         {% endif %}
       </div>
       <div class="pending">
+        {% if my_articles %}
+        {% for article in my_articles %}
+        <div class="col-lg-3">
+        <div class="card">
+            <div class="card-header">
+              <p>{{ article.title}}</p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">{{article.description}}</p>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+      <div class="websites">
         {% if my_web_requests %}
         {% for web in my_web_requests %}
         <div class="col-lg-3">
