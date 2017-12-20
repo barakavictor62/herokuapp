@@ -10,7 +10,6 @@ def home(request):
 
 def myprofile(request):
     my_articles = ContentWriting.objects.filter(user_id=request.user.id)
-    my_pending_articles = ContentWriting.objects.filter(user_id=request.user.id)
     my_web_requests = WebsiteBuilding.objects.filter(user_id=request.user.id)
     return render(request, "myprofile.html", {"my_articles":my_articles, "my_web_requests":my_web_requests})
 

@@ -47,8 +47,6 @@
           </div>
           <div class="card-body">
             <p class="card-text">{{article.description}}</p>
-            <p class="card-text">{{article.is_done}}</p>
-
           </div>
         </div>
       </div>
@@ -56,8 +54,9 @@
         {% endif %}
       </div>
       <div class="pending">
-        {% if my_pending_articles %}
-        {% for pending_article in my_pending_articles %}
+        {% if my_articles %}
+        {% for pending_article in my_articles %}
+        {if % pending_article.is_done=="0" %}
         <div class="col-lg-3">
         <div class="card">
             <div class="card-header">
@@ -69,6 +68,7 @@
             </div>
           </div>
         </div>
+        {% endif %}
           {% endfor %}
           {% endif %}
         </div>
