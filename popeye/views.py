@@ -52,7 +52,16 @@ def pricing(request):
     return render(request, "pricing.html", {})
 
 def passwordchange(request):
-    return render(request, "passwordchange.html", {})
+    if request.method == 'POST':
+        password_change = PasswordChange(request.POST)
+        if password_change.is_valid():
+            password_change.save()
+            return redirect('/myprofile')
+        else:
+            return render(request, "passwordchange.html",{'form': password_change })
+    else:
+        password_change = PasswordChange()
+        return render(request, 'passwordchange.html',{'form': password_change })
 
 def articles(request):
     if request.method == 'POST':
