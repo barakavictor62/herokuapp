@@ -54,15 +54,15 @@
         {% endif %}
       </div>
       <div class="pending">
-        {% if my_articles %}
-        {% for article in my_articles %}
+        {% if my_pending_articles %}
+        {% for pending_article in my_pending_articles %}
         <div class="col-lg-3">
         <div class="card">
             <div class="card-header">
-              <p>{{ article.title}}</p>
+              <p>{{ pending_article.title}}</p>
             </div>
             <div class="card-body">
-              <p class="card-text">{{article.description}}</p>
+              <p class="card-text">{{pending_article.description}}</p>
             </div>
           </div>
         </div>
