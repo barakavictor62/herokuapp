@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from popeye.forms import SignupForm, ContentRequestForm,EmailForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
+from .models import Profile, User, ContentWriting, WebsiteBuilding
 
 # Create your views here.
 
