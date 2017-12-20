@@ -15,7 +15,7 @@
   <h5>{{ user.email }}</h5>
   <h5>{{ user.profile.country }}</h5>
   {% if user.profile.bio %}
-  <p class="col-lg-5" id="bio">{{user.profile.bio}}</p>
+  <p class="col-lg-5 rounded" id="bio">{{user.profile.bio}}</p>
   {% endif %}
   {% if not user.profile.bio %}
   <button type="button" class="btn btn-success">Add Bio</button>
