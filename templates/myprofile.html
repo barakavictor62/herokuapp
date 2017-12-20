@@ -35,7 +35,7 @@
       </div>
       <main role="main" class="col-sm-9">
         <section class="row" id="user-data">
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             {% if user.profile.profile_picture %}
                 <img class="img-rounded" src="{{ user.profile.profile_picture.url }}">
             {% endif %}
@@ -43,7 +43,7 @@
                 <img class="img-rounded" src="../static/images/default.png">
             {% endif %}
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             {% if user.is_authenticated %}
             <h5>{{ user.first_name}} {{ user.last_name }}</h5>
           <h5>{{ user.email }}</h5>
