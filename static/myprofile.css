@@ -4,3 +4,6 @@
 .sidebar{
   height: 100vh;
 }
+main{
+  padding: 3vh;
+}
