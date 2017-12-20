@@ -11,6 +11,6 @@ main{
   margin: 2vh;
 }
 #bio{
-  border: solid thin;
+  border: solid thin gainsboro;
   border-radius: 4vh;
 }
