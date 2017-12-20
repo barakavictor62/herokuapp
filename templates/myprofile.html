@@ -26,40 +26,44 @@
 <section class="row">
   <div class="col-lg-12 well">
     <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link" href="#">My Articles</a>
+      <li class="nav-item mytab">
+        <a class="nav-link active" href="#" id="my-articles">My Articles</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pending Articles</a>
+      <li class="nav-item mytab">
+        <a class="nav-link" href="#" id="pending">Pending Articles</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Web Jobs</a>
+      <li class="nav-item mytab">
+        <a class="nav-link" href="#" id="done">Web Jobs</a>
       </li>
     </ul>
-{% if my_articles %}
-{% for article in my_articles %}
-<div class="card col-lg-3">
-  <div class="card-header">
-    <p class="card-title">{{ article.title}}</p>
-  </div>
-  <div class="card-body">
-    <p class="card-text">{{article.description}}</p>
-  </div>
-</div>
-{% endfor %}
-{% endif %}
-{% if my_web_requests %}
-{% for web in my_web_requests %}
-<div class="card col-lg-3">
-  <div class="card-header">
-    <p class="card-title">{{ web.title}}</p>
-  </div>
-  <div class="card-body">
-    <p class="card-text">{{web.description}}</p>
-  </div>
-</div>
-{% endfor %}
-{% endif %}
-</div>
-</section>
-{% endblock %}
+    <div class="my-articles">
+      {% if my_articles %}
+      {% for article in my_articles %}
+      <div class="card col-lg-3">
+          <div class="card-header">
+            <p>{{ article.title}}</p>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{article.description}}</p>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="pending">
+        {% if my_web_requests %}
+        {% for web in my_web_requests %}
+        <div class="card col-lg-3">
+          <div class="card-header">
+            <p>{{ web.title}}</p>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{web.description}}</p>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  {% endblock %}
