@@ -43,8 +43,8 @@ def edit_profile(request):
                        'form2': extra})
 
 def mywallet(request):
-     _my_articles = ContentWriting.objects.filter(user_id=request.user.id)
-    return render(request, "mywallet.html", {"_my_articles":_my_articles})
+     me_articles = ContentWriting.objects.filter(user_id=request.user.id)
+    return render(request, "mywallet.html", {"me_articles":me_articles})
 
 def pricing(request):
     return render(request, "pricing.html", {})

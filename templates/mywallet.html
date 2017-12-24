@@ -21,10 +21,10 @@
   </thead>
   <tbody>
     <tr>
-      {% for _article in _my_articles %}
-      <td>{{ _article.title }}</td>
-      <td>{{ _article.description }}</td>
-      <td>{{ _article.cost }}</td>
+      {% for article in me_articles %}
+      <td>{{ article.title }}</td>
+      <td>{{ article.description }}</td>
+      <td>{{ article.cost }}</td>
       {% endfor %}
     </tr>
   </tbody>
