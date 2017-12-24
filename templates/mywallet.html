@@ -1,14 +1,16 @@
 {% extends 'base-profile.html' %}
 {% block user-info %}
+<div class="col-lg-5">
 <p>Current Balance: ${{user.profile.Balance}}</p>
 
   <form class="form-inline">
-  <div class="form-group  mx-sm-3">
+  <div class="form-group">
     <label for="inputPassword2" class="sr-only">Password</label>
     <input type="password" class="form-control" id="inputPassword2" placeholder="$0">
   </div>
   <button type="submit" class="btn btn-primary">Add Amount</button>
 </form>
+</div>
 <!--<form>
     <div class="form-inline">
     <div class="col">
