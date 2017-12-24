@@ -4,8 +4,10 @@
 {% endblock extra_head %}
 {% block content %}
 <div class="card col-lg-4 login-form">
-  <div class="card-body">
+  <div class="card-header">
     <h4 class="card-title">Sign In</h4>
+</div>
+  <div class="card-body">
 <form method="post" action="{% url 'login' %}">
     <div class="panel-body">
         {% if form.errors %}
