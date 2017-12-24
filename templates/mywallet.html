@@ -21,11 +21,13 @@
   </thead>
   <tbody>
     <tr>
+      {% if me_articles %}
       {% for article in me_articles %}
       <td>{{ article.title }}</td>
       <td>{{ article.description }}</td>
       <td>{{ article.cost }}</td>
       {% endfor %}
+      {% endif %}
     </tr>
   </tbody>
 </table>
