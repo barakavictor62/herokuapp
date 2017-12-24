@@ -3,9 +3,13 @@
 <div class="col-sm-5">
   <p>Current Balance: ${{user.profile.Balance}}</p>
 <form>
-    <label for="inputPassword2" class="col-sm-2 col-form-label">Add Cash</label>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <label for="inputPassword2">Add Cash</label>
       <input type="password" class="form-control" id="inputPassword2" placeholder="$ 0">
       <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
 </form>
 </div>
 {% endblock %}
