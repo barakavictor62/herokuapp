@@ -20,3 +20,6 @@ main{
 .pending, .websites{
     display:none;
 }
+.table-holder{
+  padding: 2vh;
+}
