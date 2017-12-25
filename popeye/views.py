@@ -46,8 +46,8 @@ def edit_profile(request):
 
 def mywallet(request):
     me_articles = ContentWriting.objects.filter(user_id=request.user.id)
-    """sum = 0
-    for cost in me_articles:
+    sum = 0
+    """for cost in me_articles:
         cost=(re.sub('[$]', '',cost.article_cost))
         sum += cost"""
     return render(request, "mywallet.html", {"me_articles":me_articles})
