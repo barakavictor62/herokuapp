@@ -49,8 +49,8 @@ def mywallet(request):
     sum = 0
     for cost in me_articles:
         cost=(re.sub('[$]', '',cost.article_cost))
-        type_var = type(cost)
-    return render(request, "mywallet.html", {"me_articles":me_articles,"sum_total":type_var})
+        sum += cost
+    return render(request, "mywallet.html", {"me_articles":me_articles})
 
 def pricing(request):
     return render(request, "pricing.html", {})
