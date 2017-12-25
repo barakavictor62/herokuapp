@@ -20,15 +20,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          
             {% if me_articles %}
             {% for article in me_articles %}
+            <tr>
             <td>{{ article.title }}</td>
             <td>{{ article.description }}</td>
             <td>{{ article.article_cost }}</td>
+          </tr>
             {% endfor %}
             {% endif %}
-          </tr>
           <tr>
             <td colspan="2">Total</td>
             <td>{{ sum_total }}</td>
