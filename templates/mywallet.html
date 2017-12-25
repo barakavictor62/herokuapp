@@ -11,6 +11,7 @@
   </form>
 </div>
 <div class="col-lg-9 table-holder">
+    {% if me_articles %}
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -29,12 +30,24 @@
             <td>{{ article.article_cost }}</td>
           </tr>
             {% endfor %}
-            {% endif %}
           <tr>
             <td colspan="2"><b>Total</b></td>
             <td>${{ sum_total }}</td>
           </tr>
         </tbody>
       </table>
+      {% endif %}
+      {% if not me_articles %}
+      <div class="jumbotron">
+          <h1 class="display-3">Hello, world!</h1>
+          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </p>
+        </div>
+      {% endif %}
+
 </div>
 {% endblock %}

@@ -32,6 +32,7 @@ class ContentWriting(models.Model):
     article_cost = models.CharField(max_length=20)
     date_posted = models.DateTimeField(auto_now_add=True)
     is_done = models.IntegerField(default=0)
+    is_paid = models.IntegerField(default=0)
 
 class WebsiteBuilding(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -40,3 +41,5 @@ class WebsiteBuilding(models.Model):
     navigation_contents = models.CharField(max_length=500)
     website_cost = models.CharField(max_length=20)
     additional_instructions = models.CharField(max_length=1000)
+    is_done = models.IntegerField(default=0)
+    is_paid = models.IntegerField(default=0)
