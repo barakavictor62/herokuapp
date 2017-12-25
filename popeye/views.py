@@ -50,7 +50,7 @@ def mywallet(request):
     for cost in me_articles:
         cost=(re.sub('[$]', '',cost.article_cost))
         sum += float(cost)
-    return render(request, "mywallet.html", {"me_articles":me_articles})
+    return render(request, "mywallet.html", {"me_articles":me_articles, "sum_total":sum})
 
 def pricing(request):
     return render(request, "pricing.html", {})
