@@ -45,7 +45,7 @@ def edit_profile(request):
                        'form2': extra})
 
 def mywallet(request):
-    me_articles = ContentWriting.objects.filter(user_id=request.user.id)
+    me_articles = ContentWriting.objects.filter(user_id=request.user.id, is_done=0)
     sum = 0
     for cost in me_articles:
         cost=(re.sub('[$]', '',cost.article_cost))
