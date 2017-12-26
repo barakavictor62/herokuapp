@@ -62,7 +62,7 @@ def mywallet(request):
         client_token = gateway.client_token.generate()
     elif request.method== 'POST':
         add_amount = CheckOutForm(request.POST)
-        if add_amount.is_valid:
+        if add_amount.is_valid():
             add_amount.save()
             return redirect('/mywallet')
         else:
