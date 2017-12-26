@@ -50,10 +50,10 @@
 
   <script>
     paypal.Button.render({
-      env: 'sandbox', // Or 'sandbox',
+      env: 'sandbox',
       client: {
-            sandbox:    'AZu-IfPCnx1vGfR9U5i30cqyN6yr366g7wHPfUBG_h6hlr5ei_eSfnRIHcagh46I5EsCd3Rj3rSd4gXs',
-            production: 'AQ1j77yP538h5B06EaPiE_-9_rYYNL7ZXo23HvKPr87MEvBE9vjjRG9tRWqbIO-6M3IUJ44DTyHlJvA-'
+            sandbox:    'AR47DeQ8tmN-1J9cYdrV1Qjjot9m6SJ5pdNFcrKEaEPYwrsbvFMpmR1hIUWYUpW-AdQSsjtz7bd-0ZWZ',
+           // production: 'AQ1j77yP538h5B06EaPiE_-9_rYYNL7ZXo23HvKPr87MEvBE9vjjRG9tRWqbIO-6M3IUJ44DTyHlJvA-'
         },
 
       commit: true, // Show a 'Pay Now' button
@@ -62,11 +62,7 @@
         color: 'gold',
         size: 'small'
       },
-
       payment: function(data, actions) {
-        /* 
-         * Set up the payment here 
-         */
          return actions.payment.create({
                 payment: {
                     transactions: [
@@ -76,27 +72,19 @@
                     ]
                 }
             });
-      },
+            },
 
       onAuthorize: function(data, actions) {
-        /* 
-         * Execute the payment here 
-         */
          return actions.payment.execute().then(function(payment) {
 
-// The payment is complete!
-// You can now show a confirmation message to the customer
-});
-      },onCancel: function(data, actions) {
-        /* 
-         * Buyer cancelled the payment 
-         */
+         });
+      },
+      onCancel: function(data, actions) {
+       
       },
 
       onError: function(err) {
-        /* 
-         * An error occurred during the transaction 
-         */
+      
       }
     }, '#paypal-button');
   </script>
