@@ -59,8 +59,10 @@
       commit: true, // Show a 'Pay Now' button
 
       style: {
+        size: 'small',
         color: 'gold',
-        size: 'small'
+        shape: 'pill',
+        label: 'Add Amount'
       },
       payment: function(data, actions) {
          return actions.payment.create({
