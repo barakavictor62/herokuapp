@@ -47,24 +47,27 @@ def edit_profile(request):
 
 def mywallet(request):
     me_articles = ContentWriting.objects.filter(user_id=request.user.id, is_done=0)
-
+    sum = 0
+    for cost in me_articles:
+        cost=(re.sub('[$]', '',cost.article_cost))
+        sum += float(cost)
     braintree.Configuration.configure(
         braintree.Environment.Production,
         merchant_id=settings.BRAINTREE_MERCHANT_ID,
         public_key=settings.BRAINTREE_PUBLIC_KEY,
         private_key=settings.BRAINTREE_PRIVATE_KEY
         )
-
-    sum = 0
-    for cost in me_articles:
-        cost=(re.sub('[$]', '',cost.article_cost))
-        sum += float(cost)
     if request.method== 'GET':
         client_token = gateway.client_token.generate()
-    if request.method== 'POST':
+    elif request.method== 'POST':
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid:
-    return render(request, "mywallet.html", {"me_articles":me_articles, "sum_total":sum})
+            add_amount.save()
+             return redirect('/mywallet')
+        else:
+            return render(request, "mywallet.html",{"me_articles":me_articles, "sum_total":sum })
+    else:
+        return render(request, "mywallet.html", {"me_articles":me_articles, "sum_total":sum})
 
 def pricing(request):
     return render(request, "pricing.html", {})
