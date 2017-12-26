@@ -58,7 +58,7 @@ def mywallet(request):
         public_key=settings.BRAINTREE_PUBLIC_KEY,
         private_key=settings.BRAINTREE_PRIVATE_KEY
         )
-        client_token = gateway.client_token.generate()
+    client_token = gateway.client_token.generate()
     if request.method== 'POST':
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid():
