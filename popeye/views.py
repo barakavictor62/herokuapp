@@ -63,7 +63,7 @@ def mywallet(request):
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid:
             add_amount.save()
-             return redirect('/mywallet')
+            return redirect('/mywallet')
         else:
             return render(request, "mywallet.html",{"me_articles":me_articles, "sum_total":sum })
     else:
