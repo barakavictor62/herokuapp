@@ -46,7 +46,10 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
 SECURE_HSTS_SECONDS             = 1000000
 SECURE_FRAME_DENY               = True
 
-
+BRAINTREE_PRODUCTION = False
+BRAINTREE_MERCHANT_ID = os.environ.get('Merchant_ID')
+BRAINTREE_PUBLIC_KEY = os.environ.get('Private_Key')
+BRAINTREE_PRIVATE_KEY = os.environ.get('Public_Key')
 # Application definition
 
 INSTALLED_APPS = [

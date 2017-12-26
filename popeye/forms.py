@@ -173,3 +173,8 @@ class WebsiteRequestForm(forms.ModelForm):
     class Meta:
         model = WebsiteBuilding
         fields = ('company','category','navigation_contents','website_cost','additional_instructions')
+
+class CheckOutForm(forms.Form):
+    Amount = forms.IntegerField(widget=forms.NumberInput(attrs={
+        'class': 'form-control'
+    }))
