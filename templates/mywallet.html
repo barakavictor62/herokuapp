@@ -10,7 +10,7 @@
   <form class="form-inline" method="post" action="." autocomplete="off">
       {% csrf_token %}    
       <div class="form-group  mx-sm-2">
-        {{ add_amount.as_p }}
+        {{ add_amount.Amount }}
     </div>
     <button type="submit" class="btn btn-primary">Add Amount</button>
   </form>
