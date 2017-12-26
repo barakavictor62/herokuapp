@@ -175,6 +175,6 @@ class WebsiteRequestForm(forms.ModelForm):
         fields = ('company','category','navigation_contents','website_cost','additional_instructions')
 
 class CheckOutForm(forms.Form):
-    Amount = forms.CharField(widget=forms.NumberInput(attrs={
+    Amount = forms.IntegerField(widget=forms.TextInput(attrs={
         'class': 'form-control'
     }))
