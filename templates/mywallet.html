@@ -1,4 +1,7 @@
 {% extends 'base-profile.html' %}
+{% block js-script %}
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+{% endblock %}
 {% block user-info %}
 <div class="col-lg-8">
     <div id="paypal-button"></div>
