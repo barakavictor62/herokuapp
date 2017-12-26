@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from popeye.forms import SignupForm, CheckOutForm, ContentRequestForm,EmailForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
 from .models import Profile, User, ContentWriting, WebsiteBuilding
+from django.conf import settings
 import re
 import braintree
 
