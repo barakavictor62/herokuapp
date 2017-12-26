@@ -67,7 +67,8 @@ def mywallet(request):
         else:
             return render(request, "mywallet.html",{"me_articles":me_articles, "sum_total":sum })
     else:
-        return render(request, "mywallet.html", {"me_articles":me_articles, "sum_total":sum})
+        add_amount = CheckOutForm(request.POST)
+        return render(request, "mywallet.html", {"me_articles":me_articles, "sum_total":sum, "add_amount": add_amount})
 
 def pricing(request):
     return render(request, "pricing.html", {})
