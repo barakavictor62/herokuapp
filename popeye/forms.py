@@ -182,3 +182,6 @@ class CheckOutForm(forms.Form):
     Amount = forms.IntegerField(label='', widget=forms.TextInput(attrs={
         'class': 'form-control'
     }))
+    Payment_Method_Nonce = forms.CharField(label='', widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
