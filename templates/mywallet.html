@@ -2,8 +2,12 @@
 {% block js-script %}
 <!--<script src="https://js.braintreegateway.com/web/3.26.0/js/client.min.js"></script>
 <script src="https://js.braintreegateway.com/web/3.26.0/js/paypal-checkout.min.js"></script>-->
+<script src="https://js.braintreegateway.com/web/dropin/1.9.2/js/dropin.min.js"></script>
 {% endblock %}
 {% block user-info %}
+<div id="dropin-container"></div>
+<button id="submit-button">Request payment method</button>
+
 <div class="col-lg-8">
     <div id="paypal-button"></div>
   <p>Current Balance: ${{user.profile.Balance}}</p>
@@ -52,3 +56,17 @@
       {% endif %}
 </div>
 {% endblock %}
+  <script>
+    var button = document.querySelector('#submit-button');
+
+    braintree.dropin.create({
+      authorization: {{client_token}},
+      container: '#dropin-container'
+    }, function (createErr, instance) {
+      button.addEventListener('click', function () {
+        instance.requestPaymentMethod(function (err, payload) {
+          // Submit payload.nonce to your server
+        });
+      });
+    });
+  </script>

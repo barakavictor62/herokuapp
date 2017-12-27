@@ -6,7 +6,7 @@ from django.conf import settings
 import re
 import braintree
 
-gateway = braintree.BraintreeGateway(access_token='access_token$sandbox$xp9ynqmnk7467n7f$cc87561148fca2c971cd1113ce70c783')
+#gateway = braintree.BraintreeGateway(access_token='access_token$sandbox$xp9ynqmnk7467n7f$cc87561148fca2c971cd1113ce70c783')
 # Create your views here.
 
 def home(request):
@@ -58,17 +58,31 @@ def mywallet(request):
         public_key=settings.BRAINTREE_PUBLIC_KEY,
         private_key=settings.BRAINTREE_PRIVATE_KEY
         )
-    client_token = gateway.client_token.generate()
+
+    #client_token = gateway.client_token.generate()
+    client_token = braintree.ClientToken.generate()
+
     if request.method== 'POST':
+        nonce_from_the_client = request.form["payment_method_nonce"]
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid():
-            add_amount.save()
+            result = braintree.Transaction.sale({
+                "customer_id": request.user.id,
+                "first_name": request.user.first_name,
+                "last_name": request.user.last_name,
+                "email": request.user.email,
+                "amount": add_amount.cleaned_data['Amount'],
+                "payment_method_nonce": nonce_from_the_client,
+                "options": {
+                    "submit_for_settlement": True
+                    }
+                })
             return redirect('/mywallet')
         else:
-            return render(request, "mywallet.html",{"me_articles":me_articles, "sum_total":sum })
+            return render(request, "mywallet.html",{"me_articles":me_articles, "client_token":client_token, "sum_total":sum })
     else:
         add_amount = CheckOutForm(request.POST)
-        return render(request, "mywallet.html", {"me_articles":me_articles, "sum_total":sum, "add_amount": add_amount})
+        return render(request, "mywallet.html", {"me_articles":me_articles,"client_token":client_token, "sum_total":sum, "add_amount": add_amount})
 
 def pricing(request):
     return render(request, "pricing.html", {})
