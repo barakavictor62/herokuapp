@@ -7,7 +7,7 @@
 {% block user-info %}
 <div id="dropin-container"></div>
 <button id="submit-button" class="btn btn-primary">Request payment method</button>
-
+{{client_token}}
 <div class="col-lg-8">
     <div id="paypal-button"></div>
   <p>Current Balance: ${{user.profile.Balance}}</p>
@@ -56,7 +56,7 @@
       {% endif %}
 </div>
 {% endblock %}
-  <script>
+  <!--<script>
     braintree.dropin.create({
       authorization: {{client_token}},
       container: '#dropin-container'
@@ -69,3 +69,29 @@
       });
     });
   </script>
+  <script>
+  braintree.setup({{client_token}}, 'custom', {
+  paypal: {
+    container: 'paypal-container',
+    singleUse: true, // Required
+    amount: 10.00, // Required
+    currency: 'USD', // Required
+    locale: 'en_US',
+    enableShippingAddress: true,
+    shippingAddressOverride: {
+      recipientName: 'Scruff McGruff',
+      streetAddress: '1234 Main St.',
+      extendedAddress: 'Unit 1',
+      locality: 'Chicago',
+      countryCodeAlpha2: 'US',
+      postalCode: '60652',
+      region: 'IL',
+      phone: '123.456.7890',
+      editable: false
+    }
+  },
+  onPaymentMethodReceived: function (obj) {
+    doSomethingWithTheNonce(obj.nonce);
+  }
+});
+</script>-->
