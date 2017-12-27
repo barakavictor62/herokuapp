@@ -53,7 +53,7 @@ def mywallet(request):
         cost=(re.sub('[$]', '',cost.article_cost))
         sum += float(cost)
     braintree.Configuration.configure(
-        braintree.Environment.Production,
+        braintree.Environment.Sandbox,
         merchant_id=settings.BRAINTREE_MERCHANT_ID,
         public_key=settings.BRAINTREE_PUBLIC_KEY,
         private_key=settings.BRAINTREE_PRIVATE_KEY
