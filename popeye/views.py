@@ -73,11 +73,11 @@ def mywallet(request):
                     "submit_for_settlement": True
                     }
                 })
-                if result.is_success:
-                    "Success ID: ".format(result.transaction.id)
-                    return redirect('/mywallet')
-                 else:
-                     format(result.message)
+            if result.is_success:
+                "Success ID: ".format(result.transaction.id)
+                return redirect('/mywallet')
+            else:
+                format(result.message)
     else:
         client_token = braintree.ClientToken.generate()
         add_amount = CheckOutForm(initial={"Client_Token":client_token})
