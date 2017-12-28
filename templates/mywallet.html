@@ -1,11 +1,9 @@
 {% extends 'base-profile.html' %}
 {% block js-script %}
-<!--<script src="https://js.braintreegateway.com/web/3.26.0/js/client.min.js"></script>
-<script src="https://js.braintreegateway.com/web/3.26.0/js/paypal-checkout.min.js"></script>-->
-<script src="https://js.braintreegateway.com/web/dropin/1.9.2/js/dropin.min.js"></script>
+<script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
 {% endblock %}
 {% block user-info %}
-<div id="dropin-container"></div>
+<div id="payment-form"></div>
 <button id="submit-button" class="btn btn-primary">Request payment method</button>
 <div class="col-lg-8">
     <div id="paypal-button"></div>
@@ -56,43 +54,13 @@
       {% endif %}
 </div>
 {% endblock %}
-  <!--<script>
-    braintree.dropin.create({
-      authorization: {{client_token}},
-      container: '#dropin-container'
-    },
-     function (createErr, instance) {
-      $('#submit-button').click(function () {
-        instance.requestPaymentMethod(function (err, payload) {
-          // Submit payload.nonce to your server
-        });
-      });
-    });
-  </script>
-  <script>
-    var token = $('#id_Client_Token').val();
-    braintree.setup(token, 'custom', {
-      paypal: {
-        container: 'paypal-container',
-        singleUse: true, // Required
-        amount: 10.00, // Required
-        currency: 'USD', // Required
-        locale: 'en_US',
-        enableShippingAddress: true,
-        shippingAddressOverride: {
-          recipientName: 'Scruff McGruff',
-          streetAddress: '1234 Main St.',
-          extendedAddress: 'Unit 1',
-          locality: 'Chicago',
-          countryCodeAlpha2: 'US',
-          postalCode: '60652',
-          region: 'IL',
-          phone: '123.456.7890',
-          editable: false
-        }
-      },
-      onPaymentMethodReceived: function (obj) {
-        doSomethingWithTheNonce(obj.nonce);
-      }
-    });
-</script>-->
+<script>
+// We generated a client token for you so you can test out this code
+// immediately. In a production-ready integration, you will need to
+// generate a client token on your server (see section below).
+var clientToken = $("#id_Client_Token").val();
+
+braintree.setup(clientToken, "dropin", {
+  container: "payment-form"
+});
+</script>
