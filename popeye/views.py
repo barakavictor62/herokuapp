@@ -65,7 +65,6 @@ def mywallet(request):
                 "customer_id": "12345",
                 "payment_method_nonce": nonce_from_the_client
                 })
-            my_nonce = braintree.PaymentMethodNonce.create(add_amount.cleaned_data['Client_Token'])
             result = braintree.Transaction.sale({
                 "customer_id": request.user.id,
                 "first_name": request.user.first_name,
@@ -84,6 +83,7 @@ def mywallet(request):
                 format(result.message)
     else:
         client_token = braintree.ClientToken.generate()
+        my_nonce = braintree.PaymentMethodNonce.create(client_token)
         add_amount = CheckOutForm(initial={"Client_Token":client_token})
         return render(request, "mywallet.html", {"me_articles":me_articles, "clientToken":client_token, "sum_total":sum, "add_amount": add_amount})
 
