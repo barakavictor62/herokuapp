@@ -1,6 +1,8 @@
 {% extends 'base-profile.html' %}
 {% block js-script %}
 <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+<script src="https://js.braintreegateway.com/web/dropin/1.9.2/js/dropin.min.js"></script>
+
 {% endblock %}
 {% block user-info %}
 <div class="col-lg-8">
@@ -11,6 +13,8 @@
    {% csrf_token %}
    <div class="form-group  mx-sm-2" id="payment-form">
       <div id="paypal-container"></div>
+      <div id="dropin-container"></div>
+      <button id="submit-button">Request payment method</button>
       <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">$</span>
           {{ add_amount.Amount }}
@@ -65,6 +69,21 @@
     onPaymentMethodReceived: function (obj) {
       alert(obj.nonce);
     }
+  });
+</script>
+
+<script>
+  var button = document.querySelector('#submit-button');
+
+  braintree.dropin.create({
+    authorization: '{{client_token}}',
+    container: '#dropin-container'
+  }, function (createErr, instance) {
+    button.addEventListener('click', function () {
+      instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+        // Submit payload.nonce to your server
+      });
+    });
   });
 </script>
 {% endblock %}
