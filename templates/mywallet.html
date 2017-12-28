@@ -4,10 +4,10 @@
 {% endblock %}
 {% block user-info %}
 <div class="col-lg-8">
+<p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
 <p>Current Balance: ${{user.profile.Balance}}</p>
 <form class="form-inline" method="post" action="/mywallet" autocomplete="off">
    {% csrf_token %}
-   <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
    <div class="braintree-notifications"></div>
    <div id="braintree-dropin"></div>
    <div class="form-group  mx-sm-2">
