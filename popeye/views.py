@@ -75,7 +75,9 @@ def mywallet(request):
                 "Success ID: ".format(result.transaction.id)
                 return redirect('/mywallet')
             else:
-                format(result.message)
+                braintree_error ='Your payment could not be processed. Please check your input or use another payment method and try again.'
+                return render(request, "mywallet.html", {"braintree_error":braintree_error, me_articles":me_articles, "clientToken":client_token, "sum_total":sum, "add_amount": add_amount})
+
     else:
         client_token = braintree.ClientToken.generate()
         add_amount = CheckOutForm(initial={"Client_Token":client_token})
