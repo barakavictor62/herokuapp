@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from popeye.forms import SignupForm, CheckOutForm, ContentRequestForm,EmailForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
 from .models import Profile, User, ContentWriting, WebsiteBuilding
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import re
 import braintree
@@ -46,6 +47,7 @@ def edit_profile(request):
                       {'form': profile,
                        'form2': extra})
 
+@login_required(login_url='/login')
 def mywallet(request):
     me_articles = ContentWriting.objects.filter(user_id=request.user.id, is_done=0)
     sum = 0
