@@ -55,11 +55,10 @@
         </div>
       {% endif %}
 </div>
-{{clientToken}}
 {% endblock %}
-
 <script>
-  braintree.setup({{clientToken}}, 'custom', {
+  var clientToken = {{clientToken}};
+  braintree.setup(clientToken, 'custom', {
   paypal: {
     container: 'payment-form',
     singleUse: true, // Required
