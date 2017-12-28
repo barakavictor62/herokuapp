@@ -1,18 +1,18 @@
 {% extends 'base-profile.html' %}
 {% block js-script %}
-<!-- Load PayPal's checkout.js Library. -->
-<script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
-
-<!-- Load the client component. -->
-<script src="https://js.braintreegateway.com/web/3.26.0/js/client.min.js"></script>
-
-<!-- Load the PayPal Checkout component. -->
 <script src="https://js.braintreegateway.com/web/3.26.0/js/paypal-checkout.min.js"></script>
 {% endblock %}
 {% block user-info %}
-<div id="paypal-button"></div>
+
+<form method="post" action="/mywallet" autocomplete="off">
+   {% csrf_token %}
+   <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
+   <div class="braintree-notifications"></div>
+   <div id="braintree-dropin"></div>
+   <input class="btn btn-success btn-lg btn-block" type="submit" value="Pay now!" />
+  </form>
+
 <div class="col-lg-8">
-    <div id="paypal-button"></div>
   <p>Current Balance: ${{user.profile.Balance}}</p>
   <form class="form-inline" method="post" action="/mywallet" autocomplete="off">
       {% csrf_token %}    
@@ -61,79 +61,22 @@
 </div>
 {% endblock %}
 <script>
-// Be sure to have PayPal's checkout.js library loaded on your page.
-// Create a client.
-braintree.client.create({
-  authorization: {{clientToken}}
-}, function (clientErr, clientInstance) {
-
-  // Stop if there was a problem creating the client.
-  // This could happen if there is a network error or if the authorization
-  // is invalid.
-  if (clientErr) {
-    console.error('Error creating client:', clientErr);
-    return;
-  }
-
-  // Create a PayPal Checkout component.
-  braintree.paypalCheckout.create({
-    client: clientInstance
-  }, function (paypalCheckoutErr, paypalCheckoutInstance) {
-
-    // Stop if there was a problem creating PayPal Checkout.
-    // This could happen if there was a network error or if it's incorrectly
-    // configured.
-    if (paypalCheckoutErr) {
-      console.error('Error creating PayPal Checkout:', paypalCheckoutErr);
-      return;
-    }
-
-    // Set up PayPal with the checkout.js library
-    paypal.Button.render({
-      env: 'sandbox', // Or 'sandbox'
-      commit: true, // This will add the transaction amount to the PayPal button
-
-      payment: function () {
-        return paypalCheckoutInstance.createPayment({
-          flow: 'checkout', // Required
-          amount: 10.00, // Required
-          currency: 'USD', // Required
-          enableShippingAddress: true,
-          shippingAddressEditable: false,
-          shippingAddressOverride: {
-            recipientName: 'Scruff McGruff',
-            line1: '1234 Main St.',
-            line2: 'Unit 1',
-            city: 'Chicago',
-            countryCode: 'US',
-            postalCode: '60652',
-            state: 'IL',
-            phone: '123.456.7890'
-          }
+requirejs(['jquery', 'jsi18n', 'https://js.braintreegateway.com/js/braintree-2.28.0.min.js'], function($, jsi18n, braintree) {
+        function braintreeSetup() {
+            // Here you tell Braintree to add the drop-in to your division above
+            braintree.setup(braintree_client_token, "dropin", {
+                container: "braintree-dropin"
+                ,onError: function (obj) {
+                    // Errors will be added to the html code
+                    $('[type=submit]').prop('disabled', false);
+                    $('.braintree-notifications').html('<p class="alert alert-danger">' + obj.message + '</p>');
+                }
+            });
+        }
+        braintreeSetup();
+        $('form').submit(function () {
+            $('[type=submit]').prop('disabled', true);
+            $('.braintree-notifications').html('');
         });
-      },
-
-      onAuthorize: function (data, actions) {
-        return paypalCheckoutInstance.tokenizePayment(data)
-          .then(function (payload) {
-            // Submit `payload.nonce` to your server
-          });
-      },
-
-      onCancel: function (data) {
-        console.log('checkout.js payment cancelled', JSON.stringify(data, 0, 2));
-      },
-
-      onError: function (err) {
-        console.error('checkout.js error', err);
-      }
-    }, '#paypal-button').then(function () {
-      // The PayPal button will be rendered in an html element with the id
-      // `paypal-button`. This function will be called when the PayPal button
-      // is set up and ready to be used.
     });
-
-  });
-
-});
-</script>
+  </script>
