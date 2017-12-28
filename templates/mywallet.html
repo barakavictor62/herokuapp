@@ -1,7 +1,6 @@
 {% extends 'base-profile.html' %}
 {% block js-script %}
 <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
-<script  type="text/javascript" src="../static/js/checkout.js"></script>
 {% endblock %}
 {% block user-info %}
 <div class="col-lg-8">
@@ -52,4 +51,12 @@
         </div>
       {% endif %}
 </div>
+<script>
+  $(function(){
+    var clientToken = $('#id_client_token').val();
+    braintree.setup(clientToken, "dropin", {
+      container: "payment-form"
+       });
+    });
+</script>
 {% endblock %}
