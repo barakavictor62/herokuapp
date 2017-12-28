@@ -10,6 +10,7 @@
 <form class="form-inline" method="post" action="/mywallet" autocomplete="off">
    {% csrf_token %}
    <div class="form-group  mx-sm-2" id="payment-form">
+      <div id="paypal-container"></div>
       <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">$</span>
           {{ add_amount.Amount }}
@@ -55,7 +56,7 @@
     var clientToken = '{{client_token}}';
     braintree.setup(clientToken, "custom", {
     paypal: {
-      container: "payment-form",
+      container: "paypal-container",
     },
     onPaymentMethodReceived: function (obj) {
       alert(obj.nonce);
