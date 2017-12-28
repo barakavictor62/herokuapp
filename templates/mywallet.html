@@ -53,9 +53,13 @@
 </div>
 <script>
     var clientToken = '{{client_token}}';
-    braintree.setup(clientToken, "dropin", {
-      container: "payment-form"
-       });
-       alert(clientToken);
+    braintree.setup(clientToken, "custom", {
+    paypal: {
+      container: "payment-form",
+    },
+    onPaymentMethodReceived: function (obj) {
+      doSomethingWithTheNonce(obj.nonce);
+    }
+  });
 </script>
 {% endblock %}
