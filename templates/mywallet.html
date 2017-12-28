@@ -1,6 +1,6 @@
 {% extends 'base-profile.html' %}
 {% block js-script %}
-<script src="https://js.braintreegateway.com/web/3.26.0/js/paypal-checkout.min.js"></script>
+<script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
 {% endblock %}
 {% block user-info %}
 <div class="col-lg-8">
@@ -53,13 +53,11 @@
 </div>
 {% endblock %}
 <script>
-requirejs(['jquery', 'jsi18n', 'https://js.braintreegateway.com/js/braintree-2.32.1.min.js'], function($, jsi18n, braintree) {
-        function braintreeSetup() {
-          var clientToken = $('#id_client_token').val();
-              braintree.setup(clientToken, "dropin", {
-                container: "payment-form"
-                });
-        }
-        braintreeSetup();
-    });
-  </script>
+function braintreeSetup() {
+  var clientToken = $('#id_client_token').val();
+  braintree.setup(clientToken, "dropin", {
+    container: "payment-form"
+     });
+     }
+     braintreeSetup();
+</script>
