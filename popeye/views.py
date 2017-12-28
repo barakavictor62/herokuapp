@@ -67,7 +67,7 @@ def mywallet(request):
                 "last_name": request.user.last_name,
                 "email": request.user.email,
                 "amount": add_amount.cleaned_data['Amount'],
-                "payment_method_nonce":add_amount.cleaned_data['payment_method_nonce'],
+                "payment_method_nonce":request.POST.get('payment_method_nonce'),
                 "options": {
                     "submit_for_settlement": True
                     }
