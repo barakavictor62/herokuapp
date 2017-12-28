@@ -63,6 +63,7 @@ def mywallet(request):
     if request.method== 'POST':
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid():
+            payment_method_nonce = request.POST.get('payment_method_nonce'),
             result = braintree.Transaction.sale({
                 "customer_id": request.user.id,
                 "amount": add_amount.cleaned_data['Amount'],
@@ -76,7 +77,7 @@ def mywallet(request):
                 return redirect('/mywallet')
             else:
                 braintree_error ='Your payment could not be processed. Please check your input or use another payment method and try again.'
-                return render(request, "mywallet.html", {"braintree_error":braintree_error})
+                return render(request, "mywallet.html", {"braintree_error":braintree_error,"payment_method_nonce":payment_method_nonce})
 
     else:
         client_token = braintree.ClientToken.generate()
