@@ -57,12 +57,7 @@
 </div>
 {% endblock %}
 <script>
-// We generated a client token for you so you can test out this code
-// immediately. In a production-ready integration, you will need to
-// generate a client token on your server (see section below).
-var clientToken = $("#id_Client_Token").val();
-
-braintree.setup(clientToken, "dropin", {
+braintree.setup({{clientToken}}, "dropin", {
   container: "payment-form"
 });
 </script>
