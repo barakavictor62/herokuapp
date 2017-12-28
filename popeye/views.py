@@ -63,23 +63,26 @@ def mywallet(request):
     if request.method== 'POST':
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid():
-            payment_method_nonce = request.POST.get('payment_method_nonce'),
             result = braintree.Transaction.sale({
-                "customer_id": request.user.id,
-                "amount": add_amount.cleaned_data['Amount'],
-                "payment_method_nonce":request.POST.get('payment_method_nonce'),
-                "options": {
-                    "submit_for_settlement": True
-                    }
+               "amount": "1000.00",
+               "payment_method_nonce": nonce_from_the_client,
+               "options": {
+                   "submit_for_settlement": True
+                   }
                 })
             if result.is_success:
-                "Success ID: ".format(result.transaction.id)
+                print("success!: " + result.transaction.id)
                 return redirect('/mywallet')
+            elif result.transaction:
+                print("Error processing transaction:")
+                print("  code: " + result.transaction.processor_response_code)
+                print("  text: " + result.transaction.processor_response_text)
             else:
-                braintree_error ='Your payment could not be processed. Please check your input or use another payment method and try again.'
-                return render(request, "mywallet.html", {"braintree_error":braintree_error,"payment_method_nonce":payment_method_nonce})
-
-    else:
+                for error in result.errors.deep_errors:
+                    print("attribute: " + error.attribute)
+                    print("  code: " + error.code)
+                    print("  message: " + error.message)
+ else:
         client_token = braintree.ClientToken.generate()
         add_amount = CheckOutForm(initial={"Client_Token":client_token})
         return render(request, "mywallet.html", {"me_articles":me_articles, "clientToken":client_token, "sum_total":sum, "add_amount": add_amount})
