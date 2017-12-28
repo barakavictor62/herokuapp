@@ -52,7 +52,7 @@
       {% endif %}
 </div>
 <script>
-    var clientToken = $('#id_client_token').val();
+    var clientToken = {{client_token}};
     braintree.setup(clientToken, "dropin", {
       container: "payment-form"
        });
