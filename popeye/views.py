@@ -76,7 +76,7 @@ def mywallet(request):
                 return redirect('/mywallet')
             else:
                 braintree_error ='Your payment could not be processed. Please check your input or use another payment method and try again.'
-                return render(request, "mywallet.html", {"braintree_error":braintree_error, me_articles":me_articles, "clientToken":client_token, "sum_total":sum, "add_amount": add_amount})
+                return render(request, "mywallet.html", {"braintree_error":braintree_error, "me_articles":me_articles, "clientToken":client_token, "sum_total":sum, "add_amount": add_amount})
 
     else:
         client_token = braintree.ClientToken.generate()
