@@ -3,28 +3,22 @@
 <script src="https://js.braintreegateway.com/web/3.26.0/js/paypal-checkout.min.js"></script>
 {% endblock %}
 {% block user-info %}
-
-<form method="post" action="/mywallet" autocomplete="off">
+<div class="col-lg-8">
+<p>Current Balance: ${{user.profile.Balance}}</p>
+<form class="form-inline" method="post" action="/mywallet" autocomplete="off">
    {% csrf_token %}
    <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
    <div class="braintree-notifications"></div>
    <div id="braintree-dropin"></div>
-   <input class="btn btn-success btn-lg btn-block" type="submit" value="Pay now!" />
-  </form>
-
-<div class="col-lg-8">
-  <p>Current Balance: ${{user.profile.Balance}}</p>
-  <form class="form-inline" method="post" action="/mywallet" autocomplete="off">
-      {% csrf_token %}    
-      <div class="form-group  mx-sm-2">
-        {{ add_amount.Client_Token }}
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">$</span>
-          {{ add_amount.Amount }}
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Add Amount</button>
-  </form>
+   <div class="form-group  mx-sm-2">
+      {{ add_amount.Client_Token }}
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">$</span>
+        {{ add_amount.Amount }}
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Amount</button>
+</form>
 </div>
 <div class="col-lg-9 table-holder">
     {% if me_articles %}
