@@ -65,9 +65,6 @@ def mywallet(request):
         if add_amount.is_valid():
             result = braintree.Transaction.sale({
                 "customer_id": request.user.id,
-                "first_name": request.user.first_name,
-                "last_name": request.user.last_name,
-                "email": request.user.email,
                 "amount": add_amount.cleaned_data['Amount'],
                 "payment_method_nonce":request.POST.get('payment_method_nonce'),
                 "options": {
