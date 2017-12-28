@@ -11,6 +11,7 @@
    {% if braintree_error %}
       <div class="alert alert-danger">
           {{ braintree_error}}
+          {{payment_method_nonce}}
       </div>
     {% endif %}
    <div class="braintree-notifications"></div>
