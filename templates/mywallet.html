@@ -1,7 +1,20 @@
 {% extends 'base-profile.html' %}
 {% block js-script %}
+<script type="text/javascript" src="//js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
 {% endblock %}
 {% block user-info %}
+<div id="paypal-container"></div>
+
+<script>
+  braintree.setup({{clientToken}}, "custom", {
+    paypal: {
+      container: "paypal-container",
+    },
+    onPaymentMethodReceived: function (obj) {
+      doSomethingWithTheNonce(obj.nonce);
+    }
+  });
+</script>
 <div class="col-lg-8">
     <div id="paypal-button"></div>
   <p>Current Balance: ${{user.profile.Balance}}</p>
