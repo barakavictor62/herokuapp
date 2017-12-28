@@ -176,12 +176,11 @@ class WebsiteRequestForm(forms.ModelForm):
 
 class CheckOutForm(forms.Form):
     Client_Token = forms.CharField(label='', widget=forms.TextInput(attrs={
-        'class': 'form-control',
         'type':'hidden'
     }))
     Amount = forms.IntegerField(label='', widget=forms.TextInput(attrs={
         'class': 'form-control'
     }))
-    Payment_Method_Nonce = forms.CharField(label='', widget=forms.TextInput(attrs={
+    """Payment_Method_Nonce = forms.CharField(label='', widget=forms.TextInput(attrs={
         'class': 'form-control'
-    }))
+    }))"""
