@@ -51,11 +51,11 @@
         </div>
       {% endif %}
 </div>
-{% endblock %}
 <script>
-      var clientToken = $('#id_client_token').val();
-      braintree.setup(clientToken, "dropin", {
-        container: "payment-form"
-         });
-         alert(clientToken);
-  </script>
+    var clientToken = $('#id_client_token').val();
+    braintree.setup(clientToken, "dropin", {
+      container: "payment-form"
+       });
+       alert(clientToken);
+</script>
+{% endblock %}
