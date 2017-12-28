@@ -82,7 +82,7 @@ def mywallet(request):
                     print("attribute: " + error.attribute)
                     print("  code: " + error.code)
                     print("  message: " + error.message)
- else:
+    else:
         client_token = braintree.ClientToken.generate()
         add_amount = CheckOutForm(initial={"Client_Token":client_token})
         return render(request, "mywallet.html", {"me_articles":me_articles, "clientToken":client_token, "sum_total":sum, "add_amount": add_amount})
