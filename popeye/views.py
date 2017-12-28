@@ -61,17 +61,13 @@ def mywallet(request):
     if request.method== 'POST':
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid():
-            result = braintree.PaymentMethod.create({
-                "customer_id": "12345",
-                "payment_method_nonce": nonce_from_the_client
-                })
             result = braintree.Transaction.sale({
                 "customer_id": request.user.id,
                 "first_name": request.user.first_name,
                 "last_name": request.user.last_name,
                 "email": request.user.email,
                 "amount": add_amount.cleaned_data['Amount'],
-                "payment_method_nonce":my_nonce.payment_method_nonce.nonce ,
+                "payment_method_nonce":add_amount.cleaned_data['payment_method_nonce'],
                 "options": {
                     "submit_for_settlement": True
                     }
