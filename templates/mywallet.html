@@ -5,7 +5,8 @@
 
 {% endblock %}
 {% block user-info %}
-<div class="col-lg-5">
+<div class="row">
+<div class="col-lg-4">
 <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
 <p>Current Balance: ${{user.profile.Balance}}</p>
 {{ add_amount.Client_Token }}
@@ -55,6 +56,7 @@
             Once you have posted any requests, your wallet status can be reviewed from here.</p>
         </div>
       {% endif %}
+</div>
 </div>
 <script>
     var clientToken = '{{client_token}}';
