@@ -24,70 +24,76 @@
 </div>
 </section>
 <section class="row">
-  <div class="col-lg-12 well">
-    <ul class="nav nav-tabs">
-      <li class="nav-item mytab" id="my-articles">
-        <a class="nav-link active" href="#" >My Articles</a>
-      </li>
-      <li class="nav-item mytab" id="pending">
-        <a class="nav-link" href="#" >Pending Articles</a>
-      </li>
-      <li class="nav-item mytab" id="websites">
-        <a class="nav-link" href="#" >Web Jobs</a>
-      </li>
-    </ul>
-    <div class="holder">
-    <div class="my-articles">
-      {% if my_articles %}
-      {% for article in my_articles %}
-      <div class="col-lg-3">
-      <div class="card">
-          <div class="card-header">
-            <p>{{ article.title}}</p>
-          </div>
-          <div class="card-body">
-            <p class="card-text">{{article.description}}</p>
-          </div>
+
+    <div class="card">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item mytab" id="my-articles">
+                  <a class="nav-link active" href="#" >My Articles</a>
+                </li>
+                <li class="nav-item mytab" id="pending">
+                  <a class="nav-link" href="#" >Pending Articles</a>
+                </li>
+                <li class="nav-item mytab" id="websites">
+                  <a class="nav-link" href="#" >Web Jobs</a>
+                </li>
+          </ul>
+        </div>
+        <div class="card-body">
+            <div class="holder">
+                <div class="my-articles">
+                  {% if my_articles %}
+                  {% for article in my_articles %}
+                  <div class="col-lg-3">
+                  <div class="card">
+                      <div class="card-header">
+                        <p>{{ article.title}}</p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">{{article.description}}</p>
+                      </div>
+                    </div>
+                  </div>
+                    {% endfor %}
+                    {% endif %}
+                  </div>
+                  <div class="pending">
+                    {% if my_articles %}
+                    {% for pending_article in my_articles %}
+                    {% if pending_article.is_done == 0 %}
+                    <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-header">
+                          <p>{{ pending_article.title}}</p>
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text">{{pending_article.description}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {% endif %}
+                      {% endfor %}
+                      {% endif %}
+                    </div>
+                  <div class="websites">
+                    {% if my_web_requests %}
+                    {% for web in my_web_requests %}
+                    <div class="col-lg-3">
+                    <div class="card ">
+                      <div class="card-header">
+                        <p>{{ web.category }}</p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">{{web.additional_instructions}}</p>
+                      </div>
+                    </div>
+                  </div>
+                    {% endfor %}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
         </div>
       </div>
-        {% endfor %}
-        {% endif %}
-      </div>
-      <div class="pending">
-        {% if my_articles %}
-        {% for pending_article in my_articles %}
-        {% if pending_article.is_done == 0 %}
-        <div class="col-lg-3">
-        <div class="card">
-            <div class="card-header">
-              <p>{{ pending_article.title}}</p>
-            </div>
-            <div class="card-body">
-              <p class="card-text">{{pending_article.description}}</p>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-          {% endfor %}
-          {% endif %}
-        </div>
-      <div class="websites">
-        {% if my_web_requests %}
-        {% for web in my_web_requests %}
-        <div class="col-lg-3">
-        <div class="card ">
-          <div class="card-header">
-            <p>{{ web.category }}</p>
-          </div>
-          <div class="card-body">
-            <p class="card-text">{{web.additional_instructions}}</p>
-          </div>
-        </div>
-      </div>
-        {% endfor %}
-        {% endif %}
-      </div>
-    </div>
-  </div>
   </section>
   {% endblock %}
