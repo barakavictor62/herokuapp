@@ -77,7 +77,8 @@
             </div>
             {% endif %}
             {% if my_web_requests %}   
-            <div class="row websites bg-danger" id="web-requests-holder">
+            <div class="websites">
+            <div class="row  bg-danger" id="web-requests-holder">
               {% for web in my_web_requests %}
                 <div class="col-lg-3">
                   <div class="card ">
@@ -91,7 +92,20 @@
                 </div>
               {% endfor %}
             </div>
+            </div>
             {% endif %}
+            {% if not my_web_requests %}
+            <div class="websites">
+              <div class="row  bg-danger" id="web-requests-holder">
+                  <div class="card text-center ">
+                      <div class="card-body">
+                          <p class="card-text">No web requests could be found.</p>
+                        </div>
+                      
+                  </div>
+              </div>
+            </div>
+                  {% endif %}
       </div>
     </div>
   </div>
