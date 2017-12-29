@@ -175,9 +175,9 @@ class WebsiteRequestForm(forms.ModelForm):
         fields = ('company','category','navigation_contents','website_cost','additional_instructions')
 
 class CheckOutForm(forms.Form):
-    Client_Token = forms.CharField(label='', widget=forms.TextInput(attrs={
-        'type':'hidden'
-    }))
+    #Client_Token = forms.CharField(label='', widget=forms.TextInput(attrs={
+    #    'type':'hidden'
+    #}))
     Amount = forms.IntegerField(label='', widget=forms.TextInput(attrs={
         'class': 'form-control'
     }))
