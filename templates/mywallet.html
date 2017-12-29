@@ -8,7 +8,7 @@
 <div class="row">
 <div class="col-lg-4">
 <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
-<p><b>Current Balance: ${{user.profile.Balance}}</b></p>
+<h3>Current Balance: ${{user.profile.Balance}}</h3>
 <form class="form" method="post" action="/mywallet" autocomplete="off">
    {% csrf_token %}
    <div class="form-group">
@@ -23,7 +23,7 @@
    <button type="submit" class="btn btn-primary">Add Amount</button>
 </form>
 </div>
-<div class="col-lg-6 table-holder">
+<div class="col-lg-6 table-holder float-right">
     {% if me_articles %}
       <table class="table table-bordered">
         <thead>
