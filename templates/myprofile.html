@@ -94,12 +94,12 @@
             </div>
             </div>
             {% endif %}
-            {% if not my_web_requests %}
+            {% if not my_web_requests or my_articles %}
             <div class="websites">
-              <div class="row" id="web-requests-holder">
+              <div class="row card-deck" id="web-requests-holder">
                   <div class="card text-center ">
                       <div class="card-body">
-                          <p class="card-text">No web requests could be found.</p>
+                          <p class="card-text">No requests could be found!!.</p>
                         </div>
                       
                   </div>
