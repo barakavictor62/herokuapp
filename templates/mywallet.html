@@ -6,31 +6,31 @@
 {% endblock %}
 {% block user-info %}
 <div class="row">
-<div class="col-lg-4">
-<div class="card">
-  <div class="card-header">
-     <h4>Payment Information</h4>
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h4>Payment Information</h4>
+      </div>
+      <div class="card-body">
+        <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
+        <h4>Current Balance: ${{user.profile.Balance}}</h4>
+        <form class="form" method="post" action="/mywallet" autocomplete="off">
+          {% csrf_token %}
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">$</span>
+              {{ add_amount.Amount }}
+            </div>
+          </div>
+          <div class="form-group">
+            <div id="paypal-container"></div>
+          </div>
+          <button type="submit" class="btn btn-primary float-right">Add Amount</button>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-<p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
-<h4>Current Balance: ${{user.profile.Balance}}</h4>
-<form class="form" method="post" action="/mywallet" autocomplete="off">
-   {% csrf_token %}
-   <div class="form-group">
-      <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">$</span>
-          {{ add_amount.Amount }}
-        </div>
-   </div>
-   <div class="form-group">
-   <div id="paypal-container"></div>
-   </div>
-   <button type="submit" class="btn btn-primary">Add Amount</button>
-</form>
-</div>
-</div>
-</div>
-<div class="col-lg-6 float-right">
+  <div class="col-lg-6 float-right">
     {% if me_articles %}
       <table class="table table-bordered table-hover">
         <thead>
