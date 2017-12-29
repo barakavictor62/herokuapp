@@ -76,6 +76,19 @@
             </div>
             </div>
             {% endif %}
+
+            {% if not my_articles  %}
+            <div class="pending my-articles">
+            <div class="row card-deck" id="error-requests-holder">
+                <div class="card text-center " >
+                    <div class="card-body" id="error-card">
+                        <p class="card-text"><b>No requests could be found!!</b></p>
+                      </div>
+                </div>
+            </div>
+            </div>
+            {% endif %}
+
             {% if my_web_requests %}   
             <div class="websites">
             <div class="row" id="web-requests-holder">
