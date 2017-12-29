@@ -41,7 +41,8 @@
       </div>
       <div class="card-body">
               {% if my_articles %}
-              <div class="row my-articles bg-primary" id="all-articles-holder">
+              <div class="my-articles">
+              <div class="row  bg-primary" id="all-articles-holder">
                 {% for article in my_articles %}
                 <div class="col-sm-3">
                   <div class="card">
@@ -55,7 +56,9 @@
                 </div>
                 {% endfor %}
               </div>
-              <div class="row pending bg-success" id="pending-articles-holder">
+              </div>
+              <div class="pending">
+              <div class="row bg-success" id="pending-articles-holder">
                 {% for article in my_articles %}
                 {% if article.is_done == 0 %}
                 <div class="col-sm-3">
@@ -70,6 +73,7 @@
                   </div>
               {% endif %}
               {% endfor %}
+            </div>
             </div>
             {% endif %}
             {% if my_web_requests %}   
