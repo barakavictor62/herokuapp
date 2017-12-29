@@ -8,7 +8,7 @@
 <div class="row">
 <div class="col-lg-4">
 <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
-<p>Current Balance: ${{user.profile.Balance}}</p>
+<p><b>Current Balance: ${{user.profile.Balance}}</b></p>
 <form class="form" method="post" action="/mywallet" autocomplete="off">
    {% csrf_token %}
    <div class="form-group">
