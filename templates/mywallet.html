@@ -56,7 +56,7 @@
         </div>
       {% endif %}
 </div>
-<!--<script>
+<script>
     var clientToken = '{{client_token}}';
     braintree.setup(clientToken, "custom", {
     paypal: {
@@ -70,9 +70,9 @@
       alert(obj.nonce);
     }
   });
-</script>-->
+</script>
 
-<script>
+<!--<script>
   var button = document.querySelector('#submit-button');
 
   braintree.dropin.create({
@@ -90,5 +90,5 @@
       });
     });
   });
-</script>
+</script>-->
 {% endblock %}
