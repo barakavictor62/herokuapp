@@ -20,4 +20,7 @@ main{
 .pending, .websites{
     display:none;
 }
+#error-card{
+  min-height: 20vh;
+}
 
