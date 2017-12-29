@@ -58,7 +58,7 @@
               </div>
               </div>
               <div class="pending">
-              <div class="row bg-success" id="pending-articles-holder">
+              <div class="row" id="pending-articles-holder">
                 {% for article in my_articles %}
                 {% if article.is_done == 0 %}
                 <div class="col-sm-3">
@@ -78,7 +78,7 @@
             {% endif %}
             {% if my_web_requests %}   
             <div class="websites">
-            <div class="row  bg-danger" id="web-requests-holder">
+            <div class="row" id="web-requests-holder">
               {% for web in my_web_requests %}
                 <div class="col-lg-3">
                   <div class="card ">
@@ -96,7 +96,7 @@
             {% endif %}
             {% if not my_web_requests %}
             <div class="websites">
-              <div class="row  bg-danger" id="web-requests-holder">
+              <div class="row" id="web-requests-holder">
                   <div class="card text-center ">
                       <div class="card-body">
                           <p class="card-text">No web requests could be found.</p>
