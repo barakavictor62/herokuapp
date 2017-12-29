@@ -40,11 +40,10 @@
         </ul>
       </div>
       <div class="card-body">
-        <div class="row">
             {% if my_articles %}
             <div class="my-articles">
+                <div class="card-deck">
               {% for article in my_articles %}
-              <div class="col-lg-3">
                 <div class="card">
                   <div class="card-header">
                     <p>{{ article.title}}</p>
@@ -53,13 +52,13 @@
                     <p class="card-text">{{article.description}}</p>
                   </div>
                 </div>
-              </div>
               {% endfor %}
             </div>
+            </div>
             <div class="pending">
+                <div class="card-deck">
               {% for article in my_articles %}
               {% if article.is_done == 0 %}
-              <div class="col-lg-3">
                 <div class="card">
                   <div class="card-header">
                     <p>{{ article.title}}</p>
@@ -68,13 +67,14 @@
                     <p class="card-text">{{article.description}}</p>
                   </div>
                 </div>
-              </div>
             {% endif %}
             {% endfor %}
+          </div>
           </div>
           {% endif %}
           {% if my_web_requests %}   
           <div class="websites">
+              <div class="card-deck">
             {% for web in my_web_requests %}
               <div class="col-lg-3">
                 <div class="card ">
@@ -87,6 +87,7 @@
                 </div>
               </div>
             {% endfor %}
+          </div>
           </div>
           {% endif %}
         </div>
