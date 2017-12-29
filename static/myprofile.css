@@ -21,6 +21,6 @@ main{
     display:none;
 }
 #error-card{
-  min-height: 20vh;
+  min-height: 50vh;
 }
 
