@@ -13,7 +13,8 @@ $(document).ready(function() {
         $("#id_article_cost").val("$"+cost.toFixed(2));
     });
 
-    $(".mytab").click(function () {
+    $(".mytab").click(function (event) {
+        event.preventDefault();
         $(this).siblings().find("a").removeClass("active");
         $(this).find("a").addClass("active");
         $("."+$(this).attr("id")).css({"display":"block"}).siblings().hide();
