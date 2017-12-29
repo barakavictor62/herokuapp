@@ -60,28 +60,21 @@ def mywallet(request):
         public_key=settings.BRAINTREE_PUBLIC_KEY,
         private_key=settings.BRAINTREE_PRIVATE_KEY
         )
-    if request.method== 'POST':
+    if request.method== 'POST' and if request.POST.get("payment_method_nonce"):
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid():
+            nonce_from_the_client =  request.POST.get("payment_method_nonce")
             result = braintree.Transaction.sale({
-               "amount": "1000.00",
+               "amount": add_amount.cleaned_data['Amount'],
                "payment_method_nonce": nonce_from_the_client,
                "options": {
                    "submit_for_settlement": True
                    }
                 })
             if result.is_success:
-                print("success!: " + result.transaction.id)
                 return redirect('/mywallet')
-            elif result.transaction:
-                print("Error processing transaction:")
-                print("  code: " + result.transaction.processor_response_code)
-                print("  text: " + result.transaction.processor_response_text)
-            else:
-                for error in result.errors.deep_errors:
-                    print("attribute: " + error.attribute)
-                    print("  code: " + error.code)
-                    print("  message: " + error.message)
+   		    else:
+    		    return render(request, 'checkout_error.html', {})
     else:
         client_token = braintree.ClientToken.generate()
         add_amount = CheckOutForm(initial={"Client_Token":client_token})

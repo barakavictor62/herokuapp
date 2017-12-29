@@ -9,16 +9,14 @@
 <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
 <p>Current Balance: ${{user.profile.Balance}}</p>
 {{ add_amount.Client_Token }}
-<form class="form-inline" method="post" action="/mywallet" autocomplete="off">
+<form class="form" method="post" action="/mywallet" autocomplete="off">
    {% csrf_token %}
    <div class="form-group  mx-sm-2" id="payment-form">
-      <div id="paypal-container"></div>
-      <div id="dropin-container"></div>
-      <button id="submit-button">Request payment method</button>
       <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">$</span>
           {{ add_amount.Amount }}
         </div>
+      <div id="paypal-container"></div>
    </div>
    <button type="submit" class="btn btn-primary">Add Amount</button>
 </form>
@@ -62,24 +60,4 @@
       container: "paypal-container"
   });
 </script>
-
-<!--<script>
-  var button = document.querySelector('#submit-button');
-
-  braintree.dropin.create({
-    authorization: '{{client_token}}',
-    container: '#dropin-container',
-    paypal: {
-    flow: 'checkout',
-    amount: '10.00',
-    currency: 'USD'
-  }
-  }, function (createErr, instance) {
-    button.addEventListener('click', function () {
-      instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
-        // Submit payload.nonce to your server
-      });
-    });
-  });
-</script>-->
 {% endblock %}
