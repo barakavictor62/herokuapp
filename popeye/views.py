@@ -60,7 +60,7 @@ def mywallet(request):
         public_key=settings.BRAINTREE_PUBLIC_KEY,
         private_key=settings.BRAINTREE_PRIVATE_KEY
         )
-    if request.method== 'POST' and if request.POST.get("payment_method_nonce"):
+    if request.method== 'POST' and request.POST.get("payment_method_nonce"):
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid():
             nonce_from_the_client =  request.POST.get("payment_method_nonce")
