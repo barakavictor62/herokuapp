@@ -7,9 +7,9 @@
 main{
   padding: 3vh;
 }
-#user-data{
+/*#user-data{
   margin: 2vh;
-}
+}*/
 #bio{
   border: solid thin gainsboro;
   border-radius: 4vh;
