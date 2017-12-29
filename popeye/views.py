@@ -73,8 +73,10 @@ def mywallet(request):
                 })
             if result.is_success:
                 return redirect('/mywallet')
-   		    else:
-    		    return render(request, 'checkout_error.html', {})
+            else:
+                return render(request, 'checkout_error.html', {})
+       """ else:
+            return render(request, 'checkout_error.html', {})"""
     else:
         client_token = braintree.ClientToken.generate()
         add_amount = CheckOutForm(initial={"Client_Token":client_token})
