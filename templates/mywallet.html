@@ -58,17 +58,8 @@
 </div>
 <script>
     var clientToken = '{{client_token}}';
-    braintree.setup(clientToken, "custom", {
-    paypal: {
-      container: "paypal-container",
-      singleUse: true, // Required
-      amount: 10.00, // Required
-      currency: 'USD', // Required
-      locale: 'en_US',
-    },
-    onPaymentMethodReceived: function (obj) {
-      alert(obj.nonce);
-    }
+    braintree.setup(clientToken, "dropin", {
+      container: "paypal-container"
   });
 </script>
 
