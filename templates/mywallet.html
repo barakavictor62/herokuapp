@@ -8,8 +8,8 @@
 <div class="row">
 <div class="col-lg-4">
 <div class="card">
-  <h4 class="card-title">Payment Information</h4>
   <div class="card-body">
+      <h4 class="card-title">Payment Information</h4>
 <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
 <h4>Current Balance: ${{user.profile.Balance}}</h4>
 <form class="form" method="post" action="/mywallet" autocomplete="off">
@@ -28,11 +28,11 @@
 </div>
 </div>
 </div>
-<div class="col-lg-6 table-holder float-right">
+<div class="col-lg-6 float-right">
     {% if me_articles %}
     <div class="card">
-        <h4 class="card-title">Pending Payments</h4>
         <div class="card-body">
+            <h4 class="card-title">Pending Payments</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
