@@ -156,6 +156,9 @@ class WebsiteRequestForm(forms.ModelForm):
     category = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control'
     }))
+    title = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
     navigation_contents = forms.CharField(widget=forms.Textarea(attrs={
         'class': 'form-control',
         'rows': '4'
@@ -172,7 +175,7 @@ class WebsiteRequestForm(forms.ModelForm):
 
     class Meta:
         model = WebsiteBuilding
-        fields = ('company','category','navigation_contents','website_cost','additional_instructions')
+        fields = ('company','category','title','navigation_contents','website_cost','additional_instructions')
 
 class CheckOutForm(forms.Form):
     #Client_Token = forms.CharField(label='', widget=forms.TextInput(attrs={
