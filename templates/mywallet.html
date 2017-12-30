@@ -12,12 +12,13 @@
         <h4>Payment Information</h4>
       </div>
       <div class="card-body">
-          <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
         <form class="form" method="post" action="/mywallet" autocomplete="off">
           <div class="row">
           {% csrf_token %}
           <div class="col-lg-6">
-              <h4>Current Balance: ${{user.profile.Balance}}</h4>
+              <h4>Credit: ${{user.profile.Balance}}</h4>
+              <h4>Debit: ${{ sum_total }}</h4>
+              <h4>Balance: ${{ user.profile.Balance|add:-sum_total }}</h4>
           <div class="form-group mx-sm-3 mb-2">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon1">$</span>
