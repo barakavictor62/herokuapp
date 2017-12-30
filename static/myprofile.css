@@ -27,4 +27,8 @@ main{
 .requested-articles{
   padding-top: 2vh;
 }
+.anonymous-form{
+  float: none;
+  margin: 0 auto;
+}
 

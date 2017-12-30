@@ -4,43 +4,20 @@
 {% endblock %}
 <link rel="stylesheet" type="text/css" href="../static/myprofile.css">
 {% endblock %}
+{% if user.is_authenticated %}
 {% block navigation %}
 <ul class="navbar-nav ml-auto">
-    {% if user.is_authenticated %}
   <li class="nav-item">
       <a class="nav-link disabled" href="#" >Welcome {{ user.username }}</a>
   </li>
   <li class="nav-item">
     <a class="btn btn-outline-primary" href="#"><i class="fa fa-bell"></i> Notifications</a>
   </li>
-  {% endif %}
-  {% if not user.is_authenticated %}
-  <li class="nav-item">
-      <a class="nav-link" href="/pricing">Pricing</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/articles">Order Content</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/web">Order Website</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/contact">Contact Us</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/login">Sign In</a>
-    </li>
-    <li class="nav-item">
-      <a class="btn btn-primary" href="/signup">Sign Up</a>
-    </li>
-  {% endif %}
-
-</ul>
-{% endblock %}
-{% block content %}
+  </ul>
+  {% endblock %}
+  {% block content %}
 <div class="container-fluid">
     <div class="row profiler">
-        {% if user.is_authenticated %}
       <div class="card">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
@@ -69,7 +46,6 @@
           </li>
         </ul>
       </div>
-      {% endif %}
       <main role="main" class="col-sm-9">
         {% block user-info %}
 
@@ -78,6 +54,38 @@
   </div>
 </div>
 {% endblock %}
+{%endif%}
+{% if not user.is_authenticated %}
+{% block navigation %}
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="/pricing">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/articles">Order Content</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/web">Order Website</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Sign In</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-primary" href="/signup">Sign Up</a>
+      </li>
+</ul>
+{% endblock %}
+{% block content %}
+<main role="main" class="col-sm-9 anonymous-form">
+    {% block user-info %}
+
+  {% endblock %}
+</main>
+{% endblock %}
+{% endif %}
 {% block scripts %}
 <script  type="text/javascript" src="../static/js/base-profile.js"></script>
 {% endblock %}
