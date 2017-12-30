@@ -81,7 +81,8 @@ nav{
 .icon-holder-bottom{
     display: none;
 }
-.icon-holder>.icon{
+.article-price-holder{
+    padding: 2vh;
 }
 
 
