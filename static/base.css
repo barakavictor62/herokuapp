@@ -80,6 +80,7 @@ nav{
 }
 .article-price-holder{
     padding: 2vh;
+    min-height: 100vh;
 }
 #jumbo{
     height: 100%;
