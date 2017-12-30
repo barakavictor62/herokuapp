@@ -9,77 +9,41 @@
   <div class="col-lg-10">
     <div class="card">
       <div class="card-header">
-        <h4>Payment Information</h4>
+        <h4>Wallet Status</h4>
       </div>
       <div class="card-body">
           <div class="row">
           <div class="col-lg-6">
             <div class="card">
               <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Amount in Wallet: ${{user.profile.Balance}}</li>
-                  <li class="list-group-item">Total pending payments : ${{ sum_total }}</li>
-                  <li class="list-group-item">Balance: ${{ balance}}</li>
-                </ul>
-        </div>
+                <li class="list-group-item">Amount in Wallet: ${{user.profile.Balance}}</li>
+                <li class="list-group-item">Total pending payments : ${{ sum_total }}</li>
+                <li class="list-group-item">Balance: ${{ balance}}</li>
+              </ul>
+            </div>
         </div>
         <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <form class="form" method="post" action="/mywallet" autocomplete="off">
+          <div class="card">
+            <div class="card-body">
+              <form class="form" method="post" action="/mywallet" autocomplete="off">
                 {% csrf_token %}
                 <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon1">$</span>
-                      {{ add_amount.Amount }}
-                    </div>
+                  <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">$</span>
+                    {{ add_amount.Amount }}
                   </div>
-          <div class="form-group">
-            <div id="paypal-container"></div>
-          </div>
-          <button type="submit" class="btn btn-primary float-right">Add Amount</button>
-        </form>
-        </div>
-          </div>
-          </div>
+                </div>
+                <div class="form-group">
+                  <div id="paypal-container"></div>
+                </div>
+                <button type="submit" class="btn btn-primary float-right">Add Amount</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
-  </div>
-  <div class="row">
-  <div class="col-lg-8 requested-articles">
-    {% if me_articles %}
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-            {% for article in me_articles %}
-            <tr>
-            <td>{{ article.title }}</td>
-            <td>{{ article.description }}</td>
-            <td>{{ article.article_cost }}</td>
-          </tr>
-            {% endfor %}
-          <tr>
-            <td colspan="2"><b>Total</b></td>
-            <td>${{ sum_total }}</td>
-          </tr>
-        </tbody>
-      </table>
-      {% endif %}
-      {% if not me_articles %}
-      <div class="jumbotron">
-          <h4 class="display-4">Hello, {{user.username}}</h4>
-          <p class="lead">You Currently do not have any pending payments.
-            Once you have posted any requests, your wallet status can be reviewed from here.</p>
-        </div>
-      {% endif %}
-</div>
 </div>
 <script>
     var clientToken = '{{client_token}}';
