@@ -4,6 +4,7 @@ from popeye.forms import SignupForm, CheckOutForm, ContentRequestForm,EmailForm,
 from .models import Profile, User, ContentWriting, WebsiteBuilding
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from decimal import Decimal
 import re
 import braintree
 
@@ -54,6 +55,7 @@ def mywallet(request):
     for cost in me_articles:
         cost=(re.sub('[$]', '',cost.article_cost))
         sum += float(cost)
+    balance = float(Decimal(request.user.profile.id) - Decimal(sum))
     braintree.Configuration.configure(
         braintree.Environment.Sandbox,
         merchant_id=settings.BRAINTREE_MERCHANT_ID,
@@ -80,7 +82,7 @@ def mywallet(request):
     else:
         client_token = braintree.ClientToken.generate()
         add_amount = CheckOutForm(initial={"Client_Token":client_token})
-        return render(request, "mywallet.html", {"client_token":client_token, "me_articles":me_articles, "sum_total":sum, "add_amount": add_amount})
+        return render(request, "mywallet.html", {"client_token":client_token, "me_articles":me_articles, "sum_total":sum,"balance": balance, "add_amount": add_amount})
 
 def pricing(request):
     return render(request, "pricing.html", {})
