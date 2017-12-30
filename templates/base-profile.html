@@ -17,6 +17,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row profiler">
+        {% if user.is_authenticated %}
       <div class="card">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
@@ -45,6 +46,7 @@
           </li>
         </ul>
       </div>
+      {% endif %}
       <main role="main" class="col-sm-9">
         {% block user-info %}
 

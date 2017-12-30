@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm, PasswordResetForm, PasswordChangeForm
 from django.contrib.auth.models import User
-from popeye.models import Profile, ContentWriting, WebsiteBuilding
+from popeye.models import Profile, ContentWriting, WebsiteBuilding, AnonContentWriting, AnonWebsiteBuilding
 
 
 class LoginForm(AuthenticationForm):
@@ -148,6 +148,33 @@ class ContentRequestForm(forms.ModelForm):
         model = ContentWriting
         fields = ('topic','title','keywords','description','word_count','article_cost',)
 
+class AnonContentRequestForm(forms.ModelForm):
+    topic = forms.ChoiceField(widget=forms.Select(attrs={
+        'class': 'form-control'
+    }), choices=Topic_choices)
+    title = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+    keywords = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'form-control',
+        'rows': 2,
+
+    }))
+    description = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'form-control',
+        'rows': 4
+    }))
+    word_count = forms.ChoiceField(widget=forms.Select(attrs={
+        'class': 'form-control'
+    }), choices=word_count)
+    article_cost = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+
+    class Meta:
+        model = AnonContentWriting
+        fields = ('topic','title','keywords','description','word_count','article_cost',)
+
 
 class WebsiteRequestForm(forms.ModelForm):
     company = forms.CharField(widget=forms.TextInput(attrs={
@@ -175,6 +202,34 @@ class WebsiteRequestForm(forms.ModelForm):
 
     class Meta:
         model = WebsiteBuilding
+        fields = ('company','category','title','navigation_contents','website_cost','additional_instructions')
+
+class AnonWebsiteRequestForm(forms.ModelForm):
+    company = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+    category = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+    title = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+    navigation_contents = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'form-control',
+        'rows': '4'
+
+    }))
+    website_cost = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+    additional_instructions = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'form-control',
+        'rows': '4'
+
+    }))
+
+    class Meta:
+        model = AnonWebsiteBuilding
         fields = ('company','category','title','navigation_contents','website_cost','additional_instructions')
 
 class CheckOutForm(forms.Form):

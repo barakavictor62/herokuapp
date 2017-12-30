@@ -107,32 +107,56 @@ def passwordchange(request):
         return render(request, 'passwordchange.html',{'form': password_change })
 
 def articles(request):
-    if request.method == 'POST':
-        form = ContentRequestForm(request.POST)
-        if form.is_valid():
-            writing = form.save(commit=False)
-            writing.user_id = request.user.id
-            writing.save()
-            return redirect('/articles')
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = ContentRequestForm(request.POST)
+            if form.is_valid():
+                writing = form.save(commit=False)
+                writing.user_id = request.user.id
+                writing.save()
+                return redirect('/articles')
+            else:
+                return render(request, "articles.html", {'form': form})
         else:
-            return render(request, "articles.html", {'form': form})
+            form = ContentRequestForm()
+            return render(request, 'articles.html', {"form": form})
     else:
-        form = ContentRequestForm()
-        return render(request, 'articles.html', {"form": form})
-
+        if request.method == 'POST':
+            form = AnonContentRequestForm(request.POST)
+            if form.is_valid():
+                writing.save()
+                return redirect('/articles')
+            else:
+                return render(request, "articles.html", {'form': form})
+        else:
+            form = AnonContentRequestForm()
+            return render(request, 'articles.html', {"form": form})
+        
 def web(request):
-    if request.method == 'POST':
-        form = WebsiteRequestForm(request.POST)
-        if form.is_valid():
-            web = form.save(commit=False)
-            web.user_id = request.user.id
-            web.save()
-            return redirect('/web')
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = WebsiteRequestForm(request.POST)
+            if form.is_valid():
+                web = form.save(commit=False)
+                web.user_id = request.user.id
+                web.save()
+                return redirect('/web')
+            else:
+                return render(request, "web.html", {'form': form})
         else:
-            return render(request, "web.html", {'form': form})
+            form = WebsiteRequestForm()
+            return render(request, "web.html", {"form": form})
     else:
-        form = WebsiteRequestForm()
-        return render(request, "web.html", {"form": form})
+        if request.method == 'POST':
+            form = AnonWebsiteRequestForm(request.POST)
+            if form.is_valid():
+                web.save()
+                return redirect('/web')
+            else:
+                return render(request, "web.html", {'form': form})
+        else:
+            form = AnonWebsiteRequestForm()
+            return render(request, "web.html", {"form": form})
 
 def contact(request):
     if request.method == 'POST':

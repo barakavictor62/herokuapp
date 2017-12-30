@@ -34,6 +34,18 @@ class ContentWriting(models.Model):
     is_done = models.IntegerField(default=0)
     is_paid = models.IntegerField(default=0)
 
+class AnonContentWriting(models.Model):
+    email = models.EmailField(max_length=255)
+    topic = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
+    keywords = models.CharField(max_length=500)
+    description = models.CharField(max_length=1000)
+    word_count = models.IntegerField()
+    article_cost = models.CharField(max_length=20)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    is_done = models.IntegerField(default=0)
+    is_paid = models.IntegerField(default=0)
+
 class WebsiteBuilding(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     company = models.CharField(max_length=100)
@@ -44,3 +56,15 @@ class WebsiteBuilding(models.Model):
     additional_instructions = models.CharField(max_length=1000)
     is_done = models.IntegerField(default=0)
     is_paid = models.IntegerField(default=0)
+
+class AnonWebsiteBuilding(models.Model):
+    email = models.EmailField(max_length=255)
+    company = models.CharField(max_length=100)
+    category = models.CharField(max_length=100)
+    title = models.CharField(max_length=255, blank=True)
+    navigation_contents = models.CharField(max_length=500)
+    website_cost = models.CharField(max_length=20)
+    additional_instructions = models.CharField(max_length=1000)
+    is_done = models.IntegerField(default=0)
+    is_paid = models.IntegerField(default=0)
+
