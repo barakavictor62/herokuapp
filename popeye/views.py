@@ -14,6 +14,7 @@ import braintree
 def home(request):
     return render(request, "home.html", {})
 
+@login_required(login_url='/login')
 def myprofile(request):
     my_articles = ContentWriting.objects.filter(user_id=request.user.id)
     my_web_requests = WebsiteBuilding.objects.filter(user_id=request.user.id)
@@ -31,6 +32,7 @@ def signup(request):
         form = SignupForm()
         return render(request, "signup.html",{'form': form})
 
+@login_required(login_url='/login')
 def edit_profile(request):
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
@@ -91,6 +93,7 @@ def mywallet(request):
 def pricing(request):
     return render(request, "pricing.html", {})
 
+@login_required(login_url='/login')
 def passwordchange(request):
     if request.method == 'POST':
         password_change = PasswordChange(request.POST)
@@ -149,7 +152,7 @@ def contact(request):
         email_form = EmailForm()
         return render(request, 'contact.html', {"email_form": email_form})
 
-
+@login_required(login_url='/login')
 def edit_request(request):
     return render(request, "edit_request.html", {})
 
