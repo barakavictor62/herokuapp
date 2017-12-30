@@ -12,11 +12,11 @@
         <h4>Payment Information</h4>
       </div>
       <div class="card-body">
+          <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
         <form class="form" method="post" action="/mywallet" autocomplete="off">
           <div class="row">
           {% csrf_token %}
           <div class="col-lg-6">
-              <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
               <h4>Current Balance: ${{user.profile.Balance}}</h4>
           <div class="form-group">
             <div class="input-group">
