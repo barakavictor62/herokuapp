@@ -149,6 +149,10 @@ class ContentRequestForm(forms.ModelForm):
         fields = ('topic','title','keywords','description','word_count','article_cost',)
 
 class AnonContentRequestForm(forms.ModelForm):
+    email = forms.CharField(widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'palceholder':"Your email address" 
+    }))
     topic = forms.ChoiceField(widget=forms.Select(attrs={
         'class': 'form-control'
     }), choices=Topic_choices)
@@ -173,7 +177,7 @@ class AnonContentRequestForm(forms.ModelForm):
 
     class Meta:
         model = AnonContentWriting
-        fields = ('topic','title','keywords','description','word_count','article_cost',)
+        fields = ('email','topic','title','keywords','description','word_count','article_cost',)
 
 
 class WebsiteRequestForm(forms.ModelForm):
@@ -205,6 +209,10 @@ class WebsiteRequestForm(forms.ModelForm):
         fields = ('company','category','title','navigation_contents','website_cost','additional_instructions')
 
 class AnonWebsiteRequestForm(forms.ModelForm):
+    email = forms.CharField(widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'palceholder':"Your email address" 
+    }))
     company = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control'
     }))
@@ -230,7 +238,7 @@ class AnonWebsiteRequestForm(forms.ModelForm):
 
     class Meta:
         model = AnonWebsiteBuilding
-        fields = ('company','category','title','navigation_contents','website_cost','additional_instructions')
+        fields = ('email','company','category','title','navigation_contents','website_cost','additional_instructions')
 
 class CheckOutForm(forms.Form):
     #Client_Token = forms.CharField(label='', widget=forms.TextInput(attrs={
