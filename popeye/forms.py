@@ -151,7 +151,7 @@ class ContentRequestForm(forms.ModelForm):
 class AnonContentRequestForm(forms.ModelForm):
     email = forms.CharField(widget=forms.EmailInput(attrs={
         'class': 'form-control',
-        'palceholder':"Your email address" 
+        'palceholder':'Your email address' 
     }))
     topic = forms.ChoiceField(widget=forms.Select(attrs={
         'class': 'form-control'
@@ -211,7 +211,7 @@ class WebsiteRequestForm(forms.ModelForm):
 class AnonWebsiteRequestForm(forms.ModelForm):
     email = forms.CharField(widget=forms.EmailInput(attrs={
         'class': 'form-control',
-        'palceholder':"Your email address" 
+        'palceholder':'Your email address' 
     }))
     company = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control'
