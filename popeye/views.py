@@ -51,10 +51,14 @@ def edit_profile(request):
 @login_required(login_url='/login')
 def mywallet(request):
     me_articles = ContentWriting.objects.filter(user_id=request.user.id, is_done=0)
+    me_web_requests = WebsiteBuilding.objects.filter(user_id=request.user.id, is_done=0)
     sum = 0
     for cost in me_articles:
         cost=(re.sub('[$]', '',cost.article_cost))
         sum += float(cost)
+    for web_cost in me_web_requests:
+        web_cost=(re.sub('[$]', '',web_cost.website_cost))
+        sum += float(web_cost)
     balance = float(Decimal(request.user.profile.Balance) - Decimal(sum))
     braintree.Configuration.configure(
         braintree.Environment.Sandbox,
