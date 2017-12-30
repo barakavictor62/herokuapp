@@ -55,7 +55,7 @@ def mywallet(request):
     for cost in me_articles:
         cost=(re.sub('[$]', '',cost.article_cost))
         sum += float(cost)
-    balance = float(Decimal(request.user.profile.id) - Decimal(sum))
+    balance = float(Decimal(request.user.profile.Balance) - Decimal(sum))
     braintree.Configuration.configure(
         braintree.Environment.Sandbox,
         merchant_id=settings.BRAINTREE_MERCHANT_ID,
