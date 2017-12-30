@@ -12,8 +12,8 @@
         <h4>Payment Information</h4>
       </div>
       <div class="card-body">
-        <div class="row">
         <form class="form" method="post" action="/mywallet" autocomplete="off">
+          <div class="row">
           {% csrf_token %}
           <div class="col-lg-6">
               <p>Payments are safely processed with <a href='https://www.braintreepayments.com/' target='_blank'>Braintree</a>.</p>
@@ -31,10 +31,10 @@
           </div>
           </div>
           <button type="submit" class="btn btn-primary float-right">Add Amount</button>
+          </div>
         </form>
         </div>
       </div>
-    </div>
   </div>
   <div class="col-lg-6 float-right">
     {% if me_articles %}
