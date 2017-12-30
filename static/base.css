@@ -96,9 +96,9 @@ nav{
 .share-holder{
   text-align: center;
 }
-.misc, .footer{
-  background-color: #343a40!important;/**#2c3e50;**/
-}
+/*.misc, .footer{
+  background-color: #343a40!important;/**#2c3e50;*
+}*/
 .box, .footer{
   padding: 2vh;
   color: white;
