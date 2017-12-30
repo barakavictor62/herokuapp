@@ -38,6 +38,7 @@ class WebsiteBuilding(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     company = models.CharField(max_length=100)
     category = models.CharField(max_length=100)
+    title = models.CharField(max_length=255, blank=True)
     navigation_contents = models.CharField(max_length=500)
     website_cost = models.CharField(max_length=20)
     additional_instructions = models.CharField(max_length=1000)
