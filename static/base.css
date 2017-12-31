@@ -85,7 +85,8 @@ nav{
 #jumbo{
     height: 100%;
     margin: 0;
-    background: transparent;
+    background: inherit;
+    border: none;
 }
 /*#web-pricing-holder{
     padding-top:2vh; 
