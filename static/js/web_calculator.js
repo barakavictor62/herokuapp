@@ -1,5 +1,5 @@
 $( document ).ready(function() {
         $("input[type=radio]").click(function(){
-            alert("radio click");
+            alert($this.val());
         });
     });
