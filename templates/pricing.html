@@ -202,8 +202,8 @@
     </div>
 </div>
 <script>
-    $(":radio").on("click", function(){
-        alert("radio click");
-    });
+   $( document ).on( "click", "input[type='radio']", function() {
+  alert( "check box clicked" );
+});
 </script>
 {% endblock %}
