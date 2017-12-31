@@ -2,21 +2,6 @@
     margin:0;
     padding: 0;
 }
-nav{
-}
-.navbar-default{
-    border:none;
-    background-color: transparent;
-}
-
-#navbar>.navbar-nav>li>a, .navbar-header>.navbar-brand{
-    color: white;
-}
-
-#login-btn{
-    margin: 1vh 2vh 2vh 2vh;
-}
-
 /*.....................................................................................................*/
 .landing{
     background: url("./images/typewriter.jpg") no-repeat;
