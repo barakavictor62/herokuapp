@@ -87,6 +87,10 @@ nav{
     margin: 0;
     background: inherit;
     border: none;
+
+}
+.jumbo-card{
+    border: none;    
 }
 /*#web-pricing-holder{
     padding-top:2vh; 
