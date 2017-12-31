@@ -203,10 +203,8 @@
     </div>
 </div>
 <script>
-$( document ).ready(function() {
-    $(":radio").on("click", function(event){
-        alert("radio click");
-    });
+$( document ).find("input[type='checkbox']").click(function() {
+  alert( "check box clicked" );
 });
 </script>
 {% endblock %}
