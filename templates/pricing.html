@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container article-price-holder">
+        <input class="form-check-input" type="radio" name="radio3" id="exampleRadios3" value="2000">
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
@@ -203,7 +204,9 @@
 </div>
 <script>
 $( document ).ready(function() {
+    $(":radio").on("click", function(event){
         alert("radio click");
+    });
 });
 </script>
 {% endblock %}
