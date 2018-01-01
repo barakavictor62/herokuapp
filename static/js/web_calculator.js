@@ -1,6 +1,6 @@
 $( document ).ready(function() {
         var obj = {}, key;
-        $("input[type=radio]").click(function(){
+        $("input[type=radio]").change(function(){
                 var web_cost = 0;
                 obj[$(this).attr("name")]= $(this).val();
 
