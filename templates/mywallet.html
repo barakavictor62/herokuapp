@@ -53,11 +53,13 @@
 </div>
 <script>
     var clientToken = '{{client_token}}';
+    var amount_submitted = document.getElementById("id_Amount").value;
+    button.ge
     braintree.setup(clientToken, "dropin", {
       container: "paypal-container",
       paypal: {
         singleUse: true,
-        amount: 10.00,
+        amount: amount_submitted,
         currency: 'USD',
         displayName: 'Ace Digitals'
   }
