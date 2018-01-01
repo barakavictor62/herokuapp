@@ -4,10 +4,8 @@ $( document ).ready(function() {
         $("input[type=radio]").click(function(){
                 obj[$(this).attr("name")]= $(this).val();
 
-                 for (key in obj) {
-                        if (obj.hasOwnProperty(key)) {
-                            alert(key + " = " + user[key]);
-                        }
-                }
+                $.each( obj, function( key, value ) {
+                        alert( key + ": " + value );
+                      });
         });
     });
