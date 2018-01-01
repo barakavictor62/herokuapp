@@ -7,6 +7,6 @@ $( document ).ready(function() {
                  obj.push({name_el:name,
                          el_hel_val:hel_val
                         });
-                 alert(obj.name_el);
+                 alert(JSON.stringify(obj));
         });
     });
