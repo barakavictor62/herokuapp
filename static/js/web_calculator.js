@@ -6,6 +6,6 @@ $( document ).ready(function() {
                 var hel_val = $(this).val();
                 var clicked_element = {name_el:name, el_hel_val:hel_val};
                  obj.push(clicked_element);
-                 alert(obj);
+                 alert(obj.name_el);
         });
     });
