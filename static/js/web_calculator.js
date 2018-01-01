@@ -3,10 +3,9 @@ $( document ).ready(function() {
         var obj = {}, key;
         $("input[type=radio]").click(function(){
                 obj[$(this).attr("name")]= $(this).val();
-                 alert(JSON.stringify(obj));
 
                  for (key in obj) {
-                        if (user.hasOwnProperty(key)) {
+                        if (obj.hasOwnProperty(key)) {
                             alert(key + " = " + user[key]);
                         }
                 }
