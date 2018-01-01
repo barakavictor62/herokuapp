@@ -5,7 +5,8 @@ $( document ).ready(function() {
                 obj[$(this).attr("name")]= $(this).val();
 
                 $.each( obj, function( key, value ) {
-                        alert( key + ": " + value );
+                        web_cost+=value;
                       });
+                $(".website-price").text(web_cost);
         });
     });
