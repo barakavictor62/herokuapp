@@ -17,6 +17,6 @@ $( document ).ready(function() {
                 $.each( obj, function( key, value ) {
                         web_cost+=Number(value);
                       });
-                $(".website-price").text(web_cost);
+                $(".website-price").text(web_cost.toFixed(2));
         });
     });
