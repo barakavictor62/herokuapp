@@ -8,7 +8,6 @@ from decimal import Decimal
 import re
 import braintree
 
-#gateway = braintree.BraintreeGateway(access_token='access_token$sandbox$xp9ynqmnk7467n7f$cc87561148fca2c971cd1113ce70c783')
 # Create your views here.
 
 def home(request):
