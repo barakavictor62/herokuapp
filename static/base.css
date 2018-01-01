@@ -49,6 +49,9 @@
 .jumbo-card{
     border: none;    
 }
+#card{
+    background: inherit;
+}
 /*....................................................................................................*/
 .share-holders{
   padding: 10vh 0 5vh 0;
