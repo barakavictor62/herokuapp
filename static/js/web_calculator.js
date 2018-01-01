@@ -1,6 +1,6 @@
 $( document ).ready(function() {
         var obj = {}, key;
-        $(":input","input[type=select]").change(function(){
+        $(":input,input[type=select]").change(function(){
                 var web_cost = 0;
                 var el_value = 0;
                 switch($(this).attr("name")){
