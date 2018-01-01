@@ -56,12 +56,12 @@
     var amount_submitted = parseFloat(document.getElementById("id_Amount").value).toFixed(2);
     braintree.setup(clientToken, "dropin", {
       container: "paypal-container",
-      paypal: {
+      /*paypal: {
         singleUse: true,
         amount: amount_submitted,
         currency: 'USD',
         displayName: 'Ace Digitals'
-  }
+  }*/
   });
 </script>
 {% endblock %}
