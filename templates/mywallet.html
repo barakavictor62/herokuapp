@@ -42,7 +42,7 @@
                 <div class="form-group">
                   <div id="paypal-container"></div>
                 </div>
-                <button type="submit" class="btn btn-primary float-right">Add Amount</button>
+                <button type="submit" id="submit-button" class="btn btn-primary float-right">Add Amount</button>
               </form>
             </div>
           </div>
@@ -52,9 +52,20 @@
   </div>
 </div>
 <script>
-    var clientToken = '{{client_token}}';
-    braintree.setup(clientToken, "dropin", {
+var clientToken = '{{client_token}}';
+   /* braintree.setup(clientToken, "dropin", {
       container: "paypal-container"
+  });*/
+var button = document.querySelector('#submit-button');
+braintree.dropin.create({
+  authorization:clientToken,
+  container: '#paypal-container'
+}, function (createErr, instance) {
+  button.addEventListener('click', function () {
+    instance.requestPaymentMethod(function (err, payload) {
+       // Submit payload.nonce to your server
+      });
+    });
   });
 </script>
 {% endblock %}
