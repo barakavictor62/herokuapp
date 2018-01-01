@@ -53,7 +53,7 @@
 </div>
 <script>
     var clientToken = '{{client_token}}';
-    var amount_submitted = document.getElementById("id_Amount").value;
+    var amount_submitted = parseFloat(document.getElementById("id_Amount").value).toFixed(2);
     braintree.setup(clientToken, "dropin", {
       container: "paypal-container",
       paypal: {
