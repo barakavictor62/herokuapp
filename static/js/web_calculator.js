@@ -4,8 +4,9 @@ $( document ).ready(function() {
         $("input[type=radio]").click(function(){
                 var name = $(this).attr("name");
                 var hel_val = $(this).val();
-                var clicked_element = {name_el:name, el_hel_val:hel_val};
-                 obj.push(clicked_element);
+                 obj.push({name_el:name,
+                         el_hel_val:hel_val
+                        });
                  alert(obj.name_el);
         });
     });
