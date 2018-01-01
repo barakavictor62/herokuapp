@@ -54,7 +54,12 @@
 <script>
     var clientToken = '{{client_token}}';
     braintree.setup(clientToken, "dropin", {
-      container: "paypal-container"
+      container: "paypal-container",
+      paypal: {
+        singleUse: true,
+        amount: 10.00,
+        currency: 'USD'
+  }
   });
 </script>
 {% endblock %}
