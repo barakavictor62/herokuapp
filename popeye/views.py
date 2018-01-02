@@ -36,7 +36,7 @@ def signup(request):
 def edit_profile(request):
     storage_client = storage.Client()
     # The name for the new bucket
-    bucket_name = 'gs://webdev-d38d8.appspot.com/'
+    bucket_name = 'gs://webdev-d37d8.appspot.com/'
     # Creates the new bucket
     bucket = storage_client.get_bucket(bucket_name)
     if request.method == 'POST':
