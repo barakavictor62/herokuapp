@@ -43,7 +43,9 @@
                   <div id="paypal-container"></div>
                 </div>
                 <button type="submit" class="btn btn-primary float-right">Add Amount</button>
-                {{bucket}}
+                {% for blob in bucket %}
+                {{ blob.name }}
+                {% endfor %}
               </form>
             </div>
           </div>

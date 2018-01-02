@@ -36,9 +36,10 @@ def signup(request):
 def edit_profile(request):
     storage_client = storage.Client()
     # The name for the new bucket
-    bucket_name = 'gs://webdev-d3d8.appspot.com/'
+    bucket_name = 'gs://webdev-d38d8.appspot.com/'
     # Creates the new bucket
     bucket = storage_client.get_bucket(bucket_name)
+    blobs = bucket.list_blobs()
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
@@ -54,7 +55,7 @@ def edit_profile(request):
         return render(request, "edit_profile.html",
                       {'form': profile,
                        'form2': extra,
-                       'bucket':bucket})
+                       'bucket':blobs})
 
 
 
