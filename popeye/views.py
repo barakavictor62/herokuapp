@@ -5,8 +5,8 @@ from .models import Profile, User, ContentWriting, WebsiteBuilding
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from decimal import Decimal
+import google.cloud
 import re
-from google.cloud import storage
 import braintree
 
 # Create your views here.
@@ -34,9 +34,11 @@ def signup(request):
 
 @login_required(login_url='/login')
 def edit_profile(request):
+    from google.cloud import storage
+
     storage_client = storage.Client()
     # The name for the new bucket
-    bucket_name = 'gs://webdev-d37d8.appspot.com/'
+    bucket_name = 'gs://webdev-d38d8.appspot.com/'
     # Creates the new bucket
     bucket = storage_client.get_bucket(bucket_name)
     if request.method == 'POST':
