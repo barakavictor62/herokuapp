@@ -53,7 +53,8 @@ def edit_profile(request):
         extra = ProfileInfo(instance=request.user.profile)
         return render(request, "edit_profile.html",
                       {'form': profile,
-                       'form2': extra})
+                       'form2': extra,
+                       'bucket':bucket})
 
 
 
