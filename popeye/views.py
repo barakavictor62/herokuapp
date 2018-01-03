@@ -36,6 +36,8 @@ def signup(request):
 def edit_profile(request):
     storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
+    blob = bucket.blob('static')
+
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
@@ -51,7 +53,7 @@ def edit_profile(request):
         return render(request, "edit_profile.html",
                       {'form': profile,
                        'form2': extra,
-                       'bucket':bucket})
+                       'blob':blob})
 
 
 
