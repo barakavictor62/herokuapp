@@ -59,7 +59,7 @@ def edit_profile(request):
     credentials = ServiceAccountCredentials.from_json_keyfile_dict(
     CREDENTIALS_DICT
     )
-    storage_client = storage.Client(credentials=credentials, project='webdev')
+    storage_client = storage.Client(credentials=credentials)
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     blob = bucket.blob('user_profile_pictures')
     my_public_url = blob.public_url
