@@ -11,18 +11,7 @@ import re
 import braintree
 
 
-CREDENTIALS_DICT = {
-    'type': settings.G_CLOUD_TYPE,
-    'project_id':settings.G_PROJECT_ID,
-    'private_key_id': settings.G_CLOUD_PRIVATE_KEY_ID,
-    'private_key': settings.G_CLOUD_PRIVATE_KEY,
-    'client_id': settings.G_CLIENT_ID,
-    'client_email': settings.G_CLIENT_EMAIL,
-    'token_uri': settings.G_TOKEN_URI,
-    'auth_uri': settings.G_AUTH_URI,
-    'auth_provider_x509_cert_url': settings.G_AUTH_PROVIDER_X509_CERT_URL,
-    'client_x509_cert_url': settings.G_CLIENT_X509_CERT_URL,
-}
+
 
 braintree.Configuration.configure(
         braintree.Environment.Sandbox,
@@ -56,7 +45,19 @@ def signup(request):
 
 @login_required(login_url='/login')
 def edit_profile(request):
-    credentials = ServiceAccountCredentials.from_json_keyfile_dict(CREDENTIALS_DICT)
+    credentials_dict = {
+        'type': settings.G_CLOUD_TYPE,
+        'project_id':settings.G_PROJECT_ID,
+        'private_key_id': settings.G_CLOUD_PRIVATE_KEY_ID,
+        'private_key': settings.G_CLOUD_PRIVATE_KEY,
+        'client_id': settings.G_CLIENT_ID,
+        'client_email': settings.G_CLIENT_EMAIL,
+        'token_uri': settings.G_TOKEN_URI,
+        'auth_uri': settings.G_AUTH_URI,
+        'auth_provider_x509_cert_url': settings.G_AUTH_PROVIDER_X509_CERT_URL,
+        'client_x509_cert_url': settings.G_CLIENT_X509_CERT_URL,
+        }
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict)
     storage_client = storage.Client(project='webdev', credentials=credentials)
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     blob = bucket.blob('user_profile_pictures')
