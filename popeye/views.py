@@ -56,9 +56,7 @@ def signup(request):
 
 @login_required(login_url='/login')
 def edit_profile(request):
-    credentials = ServiceAccountCredentials.from_json_keyfile_dict(
-    CREDENTIALS_DICT
-    )
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(CREDENTIALS_DICT)
     storage_client = storage.Client(project='webdev', credentials=credentials)
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     blob = bucket.blob('user_profile_pictures')
