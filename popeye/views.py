@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from decimal import Decimal
 from google.cloud import storage
-from oauth2client.service_account import ServiceAccountCredentials 
+#from oauth2client.service_account import ServiceAccountCredentials 
 import re
 import braintree
 
@@ -57,8 +57,8 @@ def edit_profile(request):
         'auth_provider_x509_cert_url': settings.G_AUTH_PROVIDER_X509_CERT_URL,
         'client_x509_cert_url': settings.G_CLIENT_X509_CERT_URL,
         }
-    credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict)
-    storage_client = storage.Client(project='webdev', credentials=credentials)
+    #credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict)
+    storage_client = storage.Client(credentials_dict)
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     blob = bucket.blob('user_profile_pictures')
     my_public_url = blob.public_url
