@@ -6,19 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from decimal import Decimal
 from google.cloud import storage
-#from oauth2client.service_account import ServiceAccountCredentials 
 import re
 import braintree
-
-
-
-
-braintree.Configuration.configure(
-        braintree.Environment.Sandbox,
-        merchant_id=settings.BRAINTREE_MERCHANT_ID,
-        public_key=settings.BRAINTREE_PUBLIC_KEY,
-        private_key=settings.BRAINTREE_PRIVATE_KEY
-        )
 
 # Create your views here.
 
@@ -45,20 +34,7 @@ def signup(request):
 
 @login_required(login_url='/login')
 def edit_profile(request):
-    credentials_dict = {
-        'type': settings.G_CLOUD_TYPE,
-        'project_id':settings.G_PROJECT_ID,
-        'private_key_id': settings.G_CLOUD_PRIVATE_KEY_ID,
-        'private_key': settings.G_CLOUD_PRIVATE_KEY,
-        'client_id': settings.G_CLIENT_ID,
-        'client_email': settings.G_CLIENT_EMAIL,
-        'token_uri': settings.G_TOKEN_URI,
-        'auth_uri': settings.G_AUTH_URI,
-        'auth_provider_x509_cert_url': settings.G_AUTH_PROVIDER_X509_CERT_URL,
-        'client_x509_cert_url': settings.G_CLIENT_X509_CERT_URL,
-        }
-    #credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict)
-    storage_client = storage.Client(project='webdev', credentials=credentials_dict)
+    storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     blob = bucket.blob('user_profile_pictures')
     my_public_url = blob.public_url
@@ -96,7 +72,12 @@ def mywallet(request):
         web_cost=(re.sub('[$]', '',web_cost.website_cost))
         sum += float(web_cost)
     balance = float(Decimal(request.user.profile.Balance) - Decimal(sum))
-
+    braintree.Configuration.configure(
+        braintree.Environment.Sandbox,
+        merchant_id=settings.BRAINTREE_MERCHANT_ID,
+        public_key=settings.BRAINTREE_PUBLIC_KEY,
+        private_key=settings.BRAINTREE_PRIVATE_KEY
+        )
     if request.method== 'POST' and request.POST.get("payment_method_nonce"):
         add_amount = CheckOutForm(request.POST)
         if add_amount.is_valid():
