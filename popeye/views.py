@@ -60,7 +60,7 @@ def mywallet(request):
     me_articles = ContentWriting.objects.filter(user_id=request.user.id, is_done=0)
     me_web_requests = WebsiteBuilding.objects.filter(user_id=request.user.id, is_done=0)
     sum = 0
-    for cost in me_articles:i
+    for cost in me_articles:
         cost=(re.sub('[$]', '',cost.article_cost))
         sum += float(cost)
     for web_cost in me_web_requests:
