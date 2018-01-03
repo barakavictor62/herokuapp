@@ -58,7 +58,7 @@ def edit_profile(request):
         'client_x509_cert_url': settings.G_CLIENT_X509_CERT_URL,
         }
     #credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict)
-    storage_client = storage.Client(credentials_dict)
+    storage_client = storage.Client(project='webdev', credentials=credentials_dict)
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     blob = bucket.blob('user_profile_pictures')
     my_public_url = blob.public_url
