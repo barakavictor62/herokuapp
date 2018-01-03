@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from popeye.forms import SignupForm, CheckOutForm, AnonContentRequestForm, ContentRequestForm, EmailForm, AnonWebsiteRequestForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
+from popeye.forms import ImgProfile SignupForm, CheckOutForm, AnonContentRequestForm, ContentRequestForm, EmailForm, AnonWebsiteRequestForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
 from .models import Profile, User, ContentWriting, WebsiteBuilding
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
@@ -52,9 +52,11 @@ def edit_profile(request):
     else:
         profile = UserChange(instance=request.user)
         extra = ProfileInfo(instance=request.user.profile)
+        imgprofile = ImgProfile()
         return render(request, "edit_profile.html",
                       {'form': profile,
-                       'form2': extra})
+                       'form2': extra,
+                       'imgp':imgprofile})
 
 
 
