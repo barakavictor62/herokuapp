@@ -37,13 +37,14 @@ def edit_profile(request):
     storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     blob = bucket.blob('user_profile_pictures')
+    public_url = blob.public_url()
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
             if request.FILES['profile_picture']:
                 my_picture = request.FILES['profile_picture']
-                blob.upload_from_filename(my_picture.name)
+                blob.upload_from_filename(my_picture)
             profile.save()
             #extra.save()
             return redirect('/edit_profile')
@@ -55,7 +56,7 @@ def edit_profile(request):
         return render(request, "edit_profile.html",
                       {'form': profile,
                        'form2': extra,
-                       'blob':blob})
+                       'blob':public_url})
 
 
 
