@@ -50,6 +50,17 @@ BRAINTREE_PRODUCTION = False
 BRAINTREE_MERCHANT_ID = os.environ.get('Merchant_ID')
 BRAINTREE_PUBLIC_KEY = os.environ.get('Public_Key')
 BRAINTREE_PRIVATE_KEY = os.environ.get('Private_Key')
+
+projectId = os.environ.get('PROJECT_ID')
+private_key_id = os.environ.get('G_CLOUD_PRIVATE_KEY_ID')
+private_key = os.environ.get('G_CLOUD_PRIVATE_KEY')
+client_email = os.environ.get('G_CLIENT_EMAIL')
+token_uri = os.environ.get('G_TOKEN_URI')
+auth_uri = os.environ.get('G_AUTH_URI')
+client_id = os.environ.get('G_CLIENT_ID')
+auth_provider_x509_cert_url = os.environ.get('G_AUTH_PROVIDER_X509_CERT_URL')
+client_x509_cert_url = os.environ.get('G_CLIENT_X509_CERT_URL') 
+g_type = os.environ.get('G_CLOUD_TYPE') 
 # Application definition
 
 INSTALLED_APPS = [
