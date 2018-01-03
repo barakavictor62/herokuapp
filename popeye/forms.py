@@ -52,7 +52,7 @@ class SignupForm(UserCreationForm):
 
 class ImgProfile(forms.Form):
     image = forms.FileField(required=False, widget=forms.FileInput(attrs={
-        'class':'custom-file-input'
+        'class':'custom-file-input form-control'
     }))
 
 
