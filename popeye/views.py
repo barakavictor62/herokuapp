@@ -5,7 +5,7 @@ from .models import Profile, User, ContentWriting, WebsiteBuilding
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from decimal import Decimal
-from google.cloud import storage
+import google.cloud.storage
 import re
 import braintree
 
@@ -34,12 +34,8 @@ def signup(request):
 
 @login_required(login_url='/login')
 def edit_profile(request):
-    storage_client = storage.Client()
-    # The name for the new bucket
-    bucket_name = 'webdev-d38d8.appspot.com'
-    # Creates the new bucket
-    bucket = storage_client.get_bucket(bucket_name)
-    blobs = bucket.list_blobs()
+    storage_client = google.cloud.storage.Client.from_service_account_json('webdev-720fcea5c947.json')
+    bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
@@ -55,7 +51,7 @@ def edit_profile(request):
         return render(request, "edit_profile.html",
                       {'form': profile,
                        'form2': extra,
-                       'bucket':blobs})
+                       'bucket':bucket})
 
 
 
