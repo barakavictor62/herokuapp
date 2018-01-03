@@ -34,7 +34,7 @@ def signup(request):
 
 @login_required(login_url='/login')
 def edit_profile(request):
-    storage_client = storage.Client.from_service_account_json('/../webdev-720fcea5c947.json')
+    storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
     bucket = storage_client.get_bucket('webdev-d3d8.appspot.com')
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
@@ -60,7 +60,7 @@ def mywallet(request):
     me_articles = ContentWriting.objects.filter(user_id=request.user.id, is_done=0)
     me_web_requests = WebsiteBuilding.objects.filter(user_id=request.user.id, is_done=0)
     sum = 0
-    for cost in me_articles:
+    for cost in me_articles:i
         cost=(re.sub('[$]', '',cost.article_cost))
         sum += float(cost)
     for web_cost in me_web_requests:
