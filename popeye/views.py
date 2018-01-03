@@ -56,20 +56,20 @@ def signup(request):
 
 @login_required(login_url='/login')
 def edit_profile(request):
-    """credentials = ServiceAccountCredentials.from_json_keyfile_dict(
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(
     CREDENTIALS_DICT
     )
-    storage_client = storage.Client(credentials = credentials, project='webdev')
+    storage_client = storage.Client(credentials=credentials, project='webdev')
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     blob = bucket.blob('user_profile_pictures')
-    my_public_url = blob.public_url"""
+    my_public_url = blob.public_url
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
             if request.FILES['profile_picture']:
                 my_picture = request.FILES['profile_picture']
-                #blob.upload_from_filename(my_picture)
+                blob.upload_from_filename(my_picture)
             profile.save()
             #extra.save()
             return redirect('/edit_profile')
@@ -80,7 +80,8 @@ def edit_profile(request):
         extra = ProfileInfo(instance=request.user.profile)
         return render(request, "edit_profile.html",
                       {'form': profile,
-                       'form2': extra,})
+                       'form2': extra,
+                       'blob':my_public_url})
 
 
 
