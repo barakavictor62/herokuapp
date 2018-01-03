@@ -37,7 +37,7 @@ def edit_profile(request):
     storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
     blob = bucket.blob('user_profile_pictures')
-    my_public_url = blob.public_url()
+    my_public_url = blob.public_url
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
