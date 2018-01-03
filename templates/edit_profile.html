@@ -5,7 +5,7 @@
       <h5>Edit profile</h5>
     </div>
     <div class="card-body">
-      <form method="post" enctype="multipart/form-data">
+      <form method="post" enctype="multipart/form-data" action="/edit_profile">
       {% csrf_token %}
       {{form.as_p}}
       {{form2.as_p}}
