@@ -35,7 +35,7 @@ def signup(request):
 @login_required(login_url='/login')
 def edit_profile(request):
     storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
-    bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
+    bucket = storage_client.get_bucket('webdev-d38d8.appspot.com/user_profile_pictures')
     blob = bucket.blob('user_profile_pictures')
     my_public_url = blob.public_url
     if request.method == 'POST':
