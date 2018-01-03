@@ -44,7 +44,7 @@ def edit_profile(request):
         if profile.is_valid() and extra.is_valid():
             if request.FILES['profile_picture']:
                 my_picture = request.FILES['profile_picture']
-                blob.upload_from_filename(my_picture.path)
+                blob.upload_from_filename('popeye/webdev-720fcea5c947.json')
             profile.save()
             #extra.save()
             return redirect('/edit_profile')
