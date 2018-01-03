@@ -43,7 +43,7 @@ def edit_profile(request):
         if profile.is_valid() and extra.is_valid():
             if request.FILES['profile_picture']:
                 my_picture = request.FILES['profile_picture']
-                #blob.upload_from_filename(my_picture)
+                blob.upload_from_filename(my_picture.name)
             profile.save()
             #extra.save()
             return redirect('/edit_profile')
