@@ -39,7 +39,7 @@ def upload_file(file_stream, filename, content_type, username):
     storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
 
-    blob = bucket.blob('user_profile_pictures/'+ username)
+    blob = bucket.blob('user_profile_pictures/'+ username+'.png')
     #blob.upload_from_filename('popeye/webdev-720fcea5c947.json')
 
     """client = _get_storage_client()
