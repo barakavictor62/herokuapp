@@ -10,7 +10,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=255, blank=True)
     country = models.CharField(max_length=255, blank=True)
-    profile_picture = models.ImageField(upload_to='profile_picture', blank=True)
+    profile_picture = models.ImageField(upload_to='user_profile_pictures', blank=True)
     Balance = models.CharField(max_length=255, default=0)
 
 @receiver(post_save, sender=User)
