@@ -51,6 +51,8 @@ BRAINTREE_MERCHANT_ID = os.environ.get('Merchant_ID')
 BRAINTREE_PUBLIC_KEY = os.environ.get('Public_Key')
 BRAINTREE_PRIVATE_KEY = os.environ.get('Private_Key')
 
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
 G_PROJECT_ID = os.environ.get('PROJECT_ID')
 G_CLOUD_PRIVATE_KEY_ID = os.environ.get('G_CLOUD_PRIVATE_KEY_ID')
 G_CLOUD_PRIVATE_KEY = os.environ.get('G_CLOUD_PRIVATE_KEY')
