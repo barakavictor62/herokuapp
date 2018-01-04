@@ -51,8 +51,6 @@ BRAINTREE_MERCHANT_ID = os.environ.get('Merchant_ID')
 BRAINTREE_PUBLIC_KEY = os.environ.get('Public_Key')
 BRAINTREE_PRIVATE_KEY = os.environ.get('Private_Key')
 
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-
 G_PROJECT_ID = os.environ.get('PROJECT_ID')
 G_CLOUD_PRIVATE_KEY_ID = os.environ.get('G_CLOUD_PRIVATE_KEY_ID')
 G_CLOUD_PRIVATE_KEY = os.environ.get('G_CLOUD_PRIVATE_KEY')
@@ -74,6 +72,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -167,3 +166,7 @@ STATICFILES_DIR = (
         os.path.join(BASE_DIR, 'other-static')
         )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'webdev-d38d8.appspot.com'
+GS_PROJECT_ID = os.environ.get('PROJECT_ID')
+#GS_CREDENTIALS = 

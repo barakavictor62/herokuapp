@@ -5,6 +5,7 @@ chardet==3.0.4
 dill==0.2.7.1
 dj-database-url==0.4.2
 Django==2.0.1
+django-storages==1.6.5
 future==0.16.0
 gapic-google-cloud-datastore-v1==0.15.3
 gapic-google-cloud-error-reporting-v1beta1==0.15.3
