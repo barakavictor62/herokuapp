@@ -12,7 +12,7 @@ import os
 
 # Create your views here.
 
-def upload_image_file(file):
+def upload_image_file(file, username):
     """
     Upload the user-uploaded file to Google Cloud Storage and retrieve its
     publicly-accessible URL.
@@ -23,15 +23,12 @@ def upload_image_file(file):
     public_url = upload_file(
         file.read(),
         file.name,
-        file.content_type
+        file.content_type,
+        username
     )
-
-    current_app.logger.info(
-        "Uploaded file %s as %s.", file.filename, public_url)
-
     return public_url
 
-def upload_file(file_stream, filename, content_type):
+def upload_file(file_stream, filename, content_type, username):
     """
     Uploads a file to a given Cloud Storage bucket and returns the public url
     to the new object.
@@ -42,7 +39,7 @@ def upload_file(file_stream, filename, content_type):
     storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
     bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
 
-    blob = bucket.blob('user_profile_pictures/'+ request.user.username)
+    blob = bucket.blob('user_profile_pictures/'+ username)
     #blob.upload_from_filename('popeye/webdev-720fcea5c947.json')
 
     """client = _get_storage_client()
@@ -55,8 +52,8 @@ def upload_file(file_stream, filename, content_type):
 
     url = blob.public_url
 
-    if isinstance(url, six.binary_type):
-        url = url.decode('utf-8')
+    """if isinstance(url, six.binary_type):
+        url = url.decode('utf-8')"""
 
     return url
 
@@ -91,7 +88,7 @@ def edit_profile(request):
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
             if request.FILES['profile_picture']:
-                image_url = upload_image_file(request.FILES['profile_picture'])
+                image_url = upload_image_file(request.FILES['profile_picture'], request.user.username )
                 """blob = bucket.blob('user_profile_pictures/'+ request.user.username)
                 blob.upload_from_filename('popeye/webdev-720fcea5c947.json')"""
             profile.save()
