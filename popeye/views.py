@@ -46,7 +46,9 @@ def upload_file(file_stream, filename, content_type, username):
     bucket = client.bucket(current_app.config['CLOUD_STORAGE_BUCKET'])
     blob = bucket.blob(filename)"""
 
-    blob.upload_from_filname(filename)
+    blob.upload_from_string(
+        file_stream,
+        content_type=content_type)
 
     url = blob.public_url
 
