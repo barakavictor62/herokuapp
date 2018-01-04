@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from popeye.forms import ImgProfile, SignupForm, CheckOutForm, AnonContentRequestForm, ContentRequestForm, EmailForm, AnonWebsiteRequestForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
+from popeye.forms import SignupForm, CheckOutForm, AnonContentRequestForm, ContentRequestForm, EmailForm, AnonWebsiteRequestForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
 from .models import Profile, User, ContentWriting, WebsiteBuilding
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
@@ -8,8 +8,58 @@ from decimal import Decimal
 from google.cloud import storage
 import re
 import braintree
+import os
 
 # Create your views here.
+
+def upload_image_file(file):
+    """
+    Upload the user-uploaded file to Google Cloud Storage and retrieve its
+    publicly-accessible URL.
+    """
+    if not file:
+        return None
+
+    public_url = upload_file(
+        file.read(),
+        file.filename,
+        file.content_type
+    )
+
+    current_app.logger.info(
+        "Uploaded file %s as %s.", file.filename, public_url)
+
+    return public_url
+
+def upload_file(file_stream, filename, content_type):
+    """
+    Uploads a file to a given Cloud Storage bucket and returns the public url
+    to the new object.
+    """
+    #_check_extension(filename, current_app.config['ALLOWED_EXTENSIONS'])
+    #filename = _safe_filename(filename)
+    
+    storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
+    bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
+
+    blob = bucket.blob('user_profile_pictures/'+ request.user.username)
+    #blob.upload_from_filename('popeye/webdev-720fcea5c947.json')
+
+    """client = _get_storage_client()
+    bucket = client.bucket(current_app.config['CLOUD_STORAGE_BUCKET'])"""
+    blob = bucket.blob(filename)
+
+    blob.upload_from_string(
+        file_stream,
+        content_type=content_type)
+
+    url = blob.public_url
+
+    if isinstance(url, six.binary_type):
+        url = url.decode('utf-8')
+
+    return url
+
 
 def home(request):
     return render(request, "home.html", {})
@@ -34,16 +84,16 @@ def signup(request):
 
 @login_required(login_url='/login')
 def edit_profile(request):
-    storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
-    bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
+    """storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
+    bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')"""
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
             if request.FILES['profile_picture']:
-                my_picture = request.FILES['profile_picture']
-                blob = bucket.blob('user_profile_pictures/'+ request.user.username)
-                blob.upload_from_filename('popeye/webdev-720fcea5c947.json')
+                image_url = upload_image_file(request.files.get('profile_picture'))
+                """blob = bucket.blob('user_profile_pictures/'+ request.user.username)
+                blob.upload_from_filename('popeye/webdev-720fcea5c947.json')"""
             profile.save()
             #extra.save()
             return redirect('/edit_profile')
@@ -52,11 +102,9 @@ def edit_profile(request):
     else:
         profile = UserChange(instance=request.user)
         extra = ProfileInfo(instance=request.user.profile)
-        imgprofile = ImgProfile()
         return render(request, "edit_profile.html",
                       {'form': profile,
-                       'form2': extra,
-                       'imgp':imgprofile})
+                       'form2': extra})
 
 
 

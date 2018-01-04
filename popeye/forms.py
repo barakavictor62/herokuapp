@@ -50,12 +50,6 @@ class SignupForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
-class ImgProfile(forms.Form):
-    image = forms.FileField(required=False, widget=forms.FileInput(attrs={
-        'class':'custom-file-input form-control'
-    }))
-
-
 class ProfileInfo (forms.ModelForm):
     country = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control'

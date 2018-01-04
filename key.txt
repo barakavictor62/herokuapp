@@ -1,0 +1,22 @@
+-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDcW+BuyrondUG6\nefmPXkCyl/YXfrVKVrlM2CnY8GLLoMWPdgxgqc9ZKfOxWRvqnrQdIn2j5ojlP9lg\ngf8C33+cX1Y/Xw3+Ghgvd9DCmJl0jcQplxfWM+hn7ARhz0CwV/yTAr7ve5grQohM\ntRSR5boHD93cE169HYd0yrXblyt/WL+fyT3h0AcXTThPSsGLr4CW6CZgMheOdr5B\nqtDZXCEm0awNJ3lcgY7U8QWGmPwFy+zKVsWMxG6NscJROgOtu9mICYEHOsAIQJba\nnCTOFd+cMYonoT9AYj+VG6jqQpEmeJMj4rCzn/KxGBwwX0HGJ+eli4/e+6hoeATB\nt6aGOyjRAgMBAAECggEANAvDQ4fAVgd84cVjazhQwZ3gswXrXcaD96FqqOGGBCBR\n6SNxovcYkS+2biHk1RJs6iC2WhreJH9jIUcy6wPMySs/XLJfxK93HOcIuJ2ASSYe\nudAFAkO6ValKE6v21G/DqRlR7ZBcjYMmXC+8zwTaXkaiGRO+IZ6y2qPyNg5LaMUm\nMjCBaIgVWFKXroqGyqVM7HAjO4ZHS52WrHQ6EsOyCBbuuPFDbapgGIGYPnw2V2K8\nNeCaeME3MklUfNWfjcs25YU0uyFu5J0JJoOZPC6rjb9oaV3YC3+m85pTQ9brSXsz\nYnCDFc/7I9SYvEo5lZ28dPj5efumG5qE96KT/yo8rQKBgQDvdG3Z3bSQ0/kyknQE\nANQ0WZCqSEVswUCVjj2yULSRrkD/xsYydMTCLS+/ajB0liKxJ+zI3Ns+03tdL7Y2\n9B7z8eMCDCY0waV3P74d0xnte36+eLpZ0Pbls/Ad6VnyRHzpjfTPdFVqBaReuwSw\n+JPZpJkVlfHDj7Y3eqXR2zlPKwKBgQDrlavwpIGjmt4iuj0kOjJY5VsQAM/LPEUO\nMFwoluGp5zEmQ+ZB2HnFz2+gk1AWhIgL+g4G6yg3Mcs+3+NaWqtB5Hmlyol0XoFc\nPh+S2bXPbEe49x8amdh/e+ZqAaZde5W816vumuFmMKQsDbDdpMn8VC2x2wF1MN0u\nJCoQ1uWJ8wKBgDuYl6qMol8VUsVCa/t/FVF+JSIsYJMDugY+454Ytgg3/VdranKu\nWzYUtviF/k9V+oZq8GTBixOk4OQ9drVQps+CGUSuL2gb9gmq5K9Zle9kOBRByeeG\nuZxL32wiYs+IOiqKuS5UvtlnVBR7qVw+UdXuQGd97TEF+IzwSorja+0HAoGAPRAX\neBF71MdAiqnRTUGUaTxRxS0gryIZGBtq1858AYj+UVfKKAkPTzl8SpfEa4HArbIL\nzrlHPD842jw39uSHfVXWPiXoSPRx/VHQ50Rs/q2nTYcoVcHIvwqDZ7izwYlV/5O7\naeZVRCKZex21WU3sWO4MxgvpLdITknEnQiQhbQcCgYEA7Shc6Qurp3RZmrm7maHK\nOspbTgAZMAM0x4ETp5QVjHc/zgCfs3C9rJRwm+sc5F5r5ennVMU3agN9IOUL1PG1\nEaayJ+jT6rnT8bOGXlRrxvy68/mJFSvu5ZbZ0j9B9ze1pk+ZnN0HMTvSlW1gSERI\n0QmQkt/IfIoBhKTH7nfGO5Q=\n-----END PRIVATE KEY-----\n",
+  "client_email": "victor@webdev-d38d8.iam.gserviceaccount.com",
+  "client_id": "106219233590035603700",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/victor%40webdev-d38d8.iam.gserviceaccount.com"
+}
+
+
+credentials_dict = {
+        'type': settings.G_CLOUD_TYPE,
+        'project_id':settings.G_PROJECT_ID,
+        'private_key_id': settings.G_CLOUD_PRIVATE_KEY_ID,
+        'private_key': settings.G_CLOUD_PRIVATE_KEY,
+        'client_id': settings.G_CLIENT_ID,
+        'client_email': settings.G_CLIENT_EMAIL,
+        'token_uri': settings.G_TOKEN_URI,
+        'auth_uri': settings.G_AUTH_URI,
+        'auth_provider_x509_cert_url': settings.G_AUTH_PROVIDER_X509_CERT_URL,
+        'client_x509_cert_url': settings.G_CLIENT_X509_CERT_URL,
+        }
