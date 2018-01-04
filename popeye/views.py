@@ -91,7 +91,7 @@ def edit_profile(request):
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
             if request.FILES['profile_picture']:
-                image_url = upload_image_file(request.files.get('profile_picture'))
+                image_url = upload_image_file(request.FILES['profile_picture'])
                 """blob = bucket.blob('user_profile_pictures/'+ request.user.username)
                 blob.upload_from_filename('popeye/webdev-720fcea5c947.json')"""
             profile.save()
