@@ -39,6 +39,7 @@ SECURE_FRAME_DENY               = False
 # Application definition
 
 INSTALLED_APPS = [
+    'popeye.apps.PopeyeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
