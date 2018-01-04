@@ -43,8 +43,8 @@ def upload_file(file_stream, filename, content_type, username):
     #blob.upload_from_filename('popeye/webdev-720fcea5c947.json')
 
     """client = _get_storage_client()
-    bucket = client.bucket(current_app.config['CLOUD_STORAGE_BUCKET'])"""
-    blob = bucket.blob(filename)
+    bucket = client.bucket(current_app.config['CLOUD_STORAGE_BUCKET'])
+    blob = bucket.blob(filename)"""
 
     blob.upload_from_string(
         file_stream,
