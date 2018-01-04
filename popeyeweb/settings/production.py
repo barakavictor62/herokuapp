@@ -163,10 +163,20 @@ LOGIN_REDIRECT_URL = '/myprofile'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIR = (
-        os.path.join(BASE_DIR, 'other-static')
-        )
+    os.path.join(BASE_DIR, 'other-static')
+    )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'webdev-d38d8.appspot.com'
 GS_PROJECT_ID = os.environ.get('PROJECT_ID')
-#GS_CREDENTIALS = 
+GS_CREDENTIALS = {
+    'type': os.environ.get('G_CLOUD_TYPE'),
+    'private_key_id': os.environ.get('G_CLOUD_PRIVATE_KEY_ID'),
+    'private_key': os.environ.get('G_CLOUD_PRIVATE_KEY'),
+    'client_id': os.environ.get('G_CLIENT_ID'),
+    'client_email': os.environ.get('G_CLIENT_EMAIL'),
+    'token_uri': os.environ.get('G_TOKEN_URI'),
+    'auth_uri': os.environ.get('G_AUTH_URI'),
+    'auth_provider_x509_cert_url': os.environ.get('G_AUTH_PROVIDER_X509_CERT_URL'),
+    'client_x509_cert_url': os.environ.get('G_CLIENT_X509_CERT_URL'),
+}
