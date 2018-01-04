@@ -22,7 +22,7 @@ def upload_image_file(file):
 
     public_url = upload_file(
         file.read(),
-        file.filename,
+        file.name,
         file.content_type
     )
 
