@@ -171,7 +171,6 @@ DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'webdev-d38d8.appspot.com'
 GS_PROJECT_ID = os.environ.get('PROJECT_ID')
 GS_CREDENTIALS = google.oauth2.credentials.Credentials(
-    type = os.environ.get('G_CLOUD_TYPE'),
     private_key_id = os.environ.get('G_CLOUD_PRIVATE_KEY_ID'),
     private_key = os.environ.get('G_CLOUD_PRIVATE_KEY'),
     client_id = os.environ.get('G_CLIENT_ID'),
