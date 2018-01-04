@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import dj_database_url
-import google.oauth2.credentials
+import google.oauth2
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -170,7 +170,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'webdev-d38d8.appspot.com'
 GS_PROJECT_ID = os.environ.get('PROJECT_ID')
-GS_CREDENTIALS = google.oauth2.credentials.Credentials(
+GS_CREDENTIALS =google.oauth2.service_account.Credentials.from_service_account_file(
+    os.path.join(BASE_DIR, 'popeye/webdev-720fcea5c947.json')
+    )
+"""google.oauth2.credentials.Credentials(
     private_key_id = os.environ.get('G_CLOUD_PRIVATE_KEY_ID'),
     private_key = os.environ.get('G_CLOUD_PRIVATE_KEY'),
     client_id = os.environ.get('G_CLIENT_ID'),
@@ -179,4 +182,4 @@ GS_CREDENTIALS = google.oauth2.credentials.Credentials(
     auth_uri = os.environ.get('G_AUTH_URI'),
     auth_provider_x509_cert_url = os.environ.get('G_AUTH_PROVIDER_X509_CERT_URL'),
     client_x509_cert_url = os.environ.get('G_CLIENT_X509_CERT_URL'),
-)
+)"""
