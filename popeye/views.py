@@ -5,57 +5,11 @@ from .models import Profile, User, ContentWriting, WebsiteBuilding
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from decimal import Decimal
-from google.cloud import storage
 import re
 import braintree
-import os
+
 
 # Create your views here.
-
-def upload_image_file(file, username):
-    """
-    Upload the user-uploaded file to Google Cloud Storage and retrieve its
-    publicly-accessible URL.
-    """
-    if not file:
-        return None
-
-    public_url = upload_file(
-        file.read(),
-        file.name,
-        file.content_type,
-        username
-    )
-    return public_url
-
-def upload_file(file_stream, filename, content_type, username):
-    """
-    Uploads a file to a given Cloud Storage bucket and returns the public url
-    to the new object.
-    """
-    #_check_extension(filename, current_app.config['ALLOWED_EXTENSIONS'])
-    #filename = _safe_filename(filename)
-    
-    storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
-    bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')
-
-    blob = bucket.blob('user_profile_pictures/'+ username+'.png')
-    #blob.upload_from_filename('popeye/webdev-720fcea5c947.json')
-
-    """client = _get_storage_client()
-    bucket = client.bucket(current_app.config['CLOUD_STORAGE_BUCKET'])
-    blob = bucket.blob(filename)"""
-
-    blob.upload_from_filname(
-        filename)
-
-    url = blob.public_url
-
-    """if isinstance(url, six.binary_type):
-        url = url.decode('utf-8')"""
-
-    return url
-
 
 def home(request):
     return render(request, "home.html", {})
@@ -80,16 +34,10 @@ def signup(request):
 
 @login_required(login_url='/login')
 def edit_profile(request):
-    """storage_client = storage.Client.from_service_account_json('popeye/webdev-720fcea5c947.json')
-    bucket = storage_client.get_bucket('webdev-d38d8.appspot.com')"""
     if request.method == 'POST':
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
-            """if request.FILES['profile_picture']:
-                image_url = upload_image_file(request.FILES['profile_picture'], request.user.username )
-                blob = bucket.blob('user_profile_pictures/'+ request.user.username)
-                blob.upload_from_filename('popeye/webdev-720fcea5c947.json')"""
             profile.save()
             extra.save()
             return redirect('/edit_profile')
