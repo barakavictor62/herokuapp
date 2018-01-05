@@ -10,6 +10,9 @@ main{
 #user-data{
   margin-bottom:2vh;
 }
+#user-profile-holder{
+  height: 20vh;
+}
 #bio{
   border: solid thin gainsboro;
   border-radius: 4vh;
