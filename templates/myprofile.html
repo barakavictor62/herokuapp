@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-lg-3">
             {% if user.profile.profile_picture %}
-                <img class="img-fluid rounded" src="{{ user.profile.profile_picture.url }}">
+                <img class="img-fluid rounded" src="{{ user.profile.profile_picture.url }}" height="280">
             {% endif %}
             {% if not user.profile.profile_picture %}
                 <img class="img-fluid rounded" src="https://storage.googleapis.com/webdev-d38d8.appspot.com/static/images/default.png">
