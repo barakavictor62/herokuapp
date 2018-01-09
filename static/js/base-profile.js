@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     })
     $("#close-btn").click(function(){
-        $("#sidnav").css({"width":"0"});
+        $("#sidnav").width(0);
     });
 
 });
