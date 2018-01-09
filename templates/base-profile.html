@@ -41,10 +41,12 @@
     <div class="row profiler">
         {% if user.is_authenticated %}
       <div class="card" id="sidenav">
-        <ul class="list-group list-group-flush">
+        <div class="card-header">
             <button type="button" class="close float-right" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+          </div>
+          <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <a class="nav-link" href="/myprofile"><i class="fa fa-home fa-2x fa-fw link-icons"></i>Home</a>
           </li>
