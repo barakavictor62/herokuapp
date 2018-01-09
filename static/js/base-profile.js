@@ -20,5 +20,8 @@ $(document).ready(function() {
 
 
     })
+    $("#close-btn").click(function(){
+        $("#sidnav").css({"width":"0"});
+    });
 
 });
