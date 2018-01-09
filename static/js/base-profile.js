@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('#wrapper').toggleClass('menuDisplayed');
     $("#page-content-wrapper").toggleClass("col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-11 ");
     });
-    
+
     $("#id_article_cost").val("$"+(($("#id_word_count").val())*0.016).toFixed(2));
 
     $("#id_word_count").change(function () {
@@ -20,7 +20,7 @@ $(document).ready(function() {
         $("."+$(this).attr("id")).css({"display":"block"}).siblings().hide();
     });
     $("#close-btn").click(function(){
-        alert("hello");
+        $("#sidenav").width(0);
     });
 
 });
