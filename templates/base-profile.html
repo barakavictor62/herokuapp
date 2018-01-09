@@ -2,7 +2,7 @@
 {% block extra_head %}
 {% block js-script %}
 {% endblock %}
-<link rel="stylesheet" type="text/css" href="../static/myprofile.css">
+<link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/webdev-d38d8.appspot.com/static/myprofile.css">
 {% endblock %}
 {% block navigation %}
 <ul class="navbar-nav ml-auto">
@@ -40,8 +40,11 @@
 <div class="container-fluid">
     <div class="row profiler">
         {% if user.is_authenticated %}
-      <div class="card">
+      <div class="card" id="sidenav">
         <ul class="list-group list-group-flush">
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
           <li class="list-group-item">
             <a class="nav-link" href="/myprofile"><i class="fa fa-home fa-2x fa-fw link-icons"></i>Home</a>
           </li>
