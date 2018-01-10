@@ -34,7 +34,8 @@ main{
   float: none;
   margin: 0 auto;
 }
-
-/*#sidenav{
-  position: fixed;
-}*/
+@media (min-width: 768px){
+  #sidenav{
+    position: fixed;
+  }
+}
