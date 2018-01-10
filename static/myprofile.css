@@ -34,8 +34,14 @@ main{
   float: none;
   margin: 0 auto;
 }
+#header-card{
+  display: none;
+}
 @media (max-width: 768px){
   #sidenav{
     position: fixed;
+  }
+  #header-card{
+    display: block;
   }
 }
