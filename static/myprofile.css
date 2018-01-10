@@ -37,4 +37,6 @@ main{
 #sidenav{
   position: fixed;
 }
-
+#main-body{
+  position: fixed;
+}

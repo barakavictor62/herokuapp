@@ -74,10 +74,10 @@
           </li>
         </ul>
       </div>
-      <main role="main" class="col-sm-9">
+      <main role="main" class="col-sm-9" id="main-body">
         {% endif %}
         {% if not user.is_authenticated %}
-          <main role="main" class="col-sm-9 anonymous-form">
+          <main role="main" class="col-sm-9 anonymous-form" id="main-body">
             {% endif %}
         {% block user-info %}
 
