@@ -37,5 +37,6 @@ main{
 @media (max-width: 768px){
   #sidenav{
     position: fixed;
+    display: none;
   }
 }
