@@ -63,7 +63,7 @@
   padding: 2vh;
   color: white;
 }
-.footer{
+#foot-holder{
     z-index: 20;
 }
 .inner-box{
