@@ -37,7 +37,7 @@ main{
 #header-card{
   display: none;
 }
-/*@media (max-width: 768px){
+@media (max-width: 768px){
   #sidenav{
     position: absolute;
     z-index: 10;
@@ -49,4 +49,4 @@ main{
   #main-body{
     z-index: 1;
   }
-}*/
+}
