@@ -40,8 +40,12 @@ main{
 @media (max-width: 768px){
   #sidenav{
     position: absolute;
+    z-index: 10;
   }
   #header-card{
     display: block;
+  }
+  #main-body{
+    z-index: 1;
   }
 }
