@@ -21,6 +21,7 @@ $(document).ready(function() {
     });
     $("#close-btn").click(function(){
         $("#sidenav").width(0);
+        alert($(".profiler").height());
     });
 
 });
