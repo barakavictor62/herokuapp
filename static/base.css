@@ -63,6 +63,9 @@
   padding: 2vh;
   color: white;
 }
+.footer{
+    z-index: 11;
+}
 .inner-box{
   float: none;
   margin: 0 auto;
