@@ -1,6 +1,9 @@
 .profiler{
   min-height: 100vh;
 }
+#sidenav{
+  border-radius: 0;
+}
 .sidebar{
   height: 100vh;
 }
