@@ -52,7 +52,5 @@ main{
   #main-body{
     z-index: 1;
   }
-  .footer{
-    z-index: 11;
-  }
+  
 }
