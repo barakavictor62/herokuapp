@@ -39,7 +39,7 @@ main{
 }
 @media (max-width: 768px){
   #sidenav{
-    position: fixed;
+    position: absolute;
   }
   #header-card{
     display: block;
