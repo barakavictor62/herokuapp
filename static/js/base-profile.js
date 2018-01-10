@@ -20,8 +20,7 @@ $(document).ready(function() {
         $("."+$(this).attr("id")).css({"display":"block"}).siblings().hide();
     });
     $("#close-btn").click(function(){
-        $("#sidenav").width(0);
-        alert($(".profiler").height());
+        $("#sidenav").width(0).height($(".profiler").height());
     });
 
 });
