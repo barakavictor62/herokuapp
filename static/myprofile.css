@@ -49,3 +49,6 @@ main{
     z-index: 1;
   }
 }
+#foot-holder{
+  z-index: 20;
+}

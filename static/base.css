@@ -63,9 +63,7 @@
   padding: 2vh;
   color: white;
 }
-#foot-holder{
-    z-index: 20;
-}
+
 .inner-box{
   float: none;
   margin: 0 auto;
