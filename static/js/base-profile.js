@@ -6,6 +6,7 @@ $(document).ready(function() {
     });
 
     $("#id_article_cost").val("$"+(($("#id_word_count").val())*0.016).toFixed(2));
+    $("#sidenav").height($(".profiler").height()+"px");
 
     $("#id_word_count").change(function () {
         var words = $("#id_word_count").val();
@@ -20,8 +21,7 @@ $(document).ready(function() {
         $("."+$(this).attr("id")).css({"display":"block"}).siblings().hide();
     });
     $("#close-btn").click(function(){
-        $("#sidenav").width(0).height($(".profiler").height()+"px");
-        alert($(".profiler").height()+"px");
+        $("#sidenav").width(0);
     });
 
 });
