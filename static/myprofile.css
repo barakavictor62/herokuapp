@@ -34,4 +34,7 @@ main{
   float: none;
   margin: 0 auto;
 }
+#sidenav{
+  position: fixed;
+}
 
