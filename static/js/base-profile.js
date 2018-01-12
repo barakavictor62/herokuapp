@@ -21,7 +21,7 @@ $(document).ready(function() {
         $("."+$(this).attr("id")).css({"display":"block"}).siblings().hide();
     });
     $("#close-btn").click(function(){
-        $("#sidenav").width(0);
+        $("#sidenav").width(0).children().css( "display","none") ;
     });
 
 });
