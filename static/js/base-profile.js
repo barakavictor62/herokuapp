@@ -6,7 +6,7 @@ $(document).ready(function() {
     });
 
     $("#id_article_cost").val("$"+(($("#id_word_count").val())*0.016).toFixed(2));
-    $("#sidenav").height($("#main-body").height()+"px");
+    $("#sidenav").height($(".profiler").height());
 
     $("#id_word_count").change(function () {
         var words = $("#id_word_count").val();
