@@ -24,7 +24,7 @@ $(document).ready(function() {
         $("#sidenav").width(0).children().css( "display","none") ;
     });
     $("#navigate").click(function() {
-        $("#sidenav").css("display","block").width(250).children().css( "display","block") ;
+        $("#sidenav").css("display","flex").width(250).children().css( "display","block") ;
     });
 
 });
