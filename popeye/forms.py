@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm, PasswordResetForm, PasswordChangeForm
 from django.contrib.auth.models import User
-from registration.forms import RegistrationFormUniqueEmail
 from popeye.models import Profile, ContentWriting, WebsiteBuilding, AnonContentWriting, AnonWebsiteBuilding
 
 
@@ -27,7 +26,7 @@ class EmailForm(forms.Form):
     }))
 
 
-class SignupForm(RegistrationFormUniqueEmail):
+class SignupForm(UserCreationForm):
     first_name = forms.CharField(label='First name',widget=forms.TextInput(attrs={
         'class': 'form-control',
         'autofocus': ''
