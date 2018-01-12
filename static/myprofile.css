@@ -40,7 +40,7 @@ main{
 #header-card{
   display: none;
 }
-#navigate{
+#inner-nav{
   display: none;
 }
 @media (max-width: 768px){
@@ -56,8 +56,11 @@ main{
   #main-body{
     z-index: 1;
   }
-  #navigate{
+  #inner-nav{
     display: block;
+  }
+  main{
+    padding: 1vh 3vh 3vh 3vh;
   }
   
 }
