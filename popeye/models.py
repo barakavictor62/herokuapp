@@ -8,7 +8,7 @@ from django.dispatch import receiver
 
 def upload_to(instance, filename):
     username = instance.user.username
-    return 'user_profile_pictures/%s/%s/' % (username)
+    return 'user_profile_pictures/%s/' % (username)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
