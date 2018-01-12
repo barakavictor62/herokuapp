@@ -23,5 +23,8 @@ $(document).ready(function() {
     $("#close-btn").click(function(){
         $("#sidenav").width(0).children().css( "display","none") ;
     });
+    $("#navigate").click(function() {
+        $("#sidenav").width(250).children().css( "display","none") ;
+    })
 
 });
