@@ -51,6 +51,7 @@ main{
   }
   #main-body{
     z-index: 1;
+    border: solid;
   }
   
 }
