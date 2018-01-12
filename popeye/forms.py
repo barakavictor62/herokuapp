@@ -1,6 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import RegistrationFormUniqueEmail, AuthenticationForm,UserCreationForm, PasswordResetForm, PasswordChangeForm
+from django.contrib.auth.forms import AuthenticationForm,UserCreationForm, PasswordResetForm, PasswordChangeForm
 from django.contrib.auth.models import User
+from registration.forms import RegistrationFormUniqueEmail
 from popeye.models import Profile, ContentWriting, WebsiteBuilding, AnonContentWriting, AnonWebsiteBuilding
 
 
