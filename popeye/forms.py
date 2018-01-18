@@ -78,8 +78,8 @@ class ProfileInfo (forms.ModelForm):
         resized_image = image.thumbnail((200, 200), Image.ANTIALIAS)
         image_file = StringIO()
         resized_image.save(image_file)
-
-        return photo
+        image_field.file = image_file
+        #return photo
 
 
 class resetForm(PasswordResetForm):
