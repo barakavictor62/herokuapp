@@ -1,4 +1,5 @@
 from PIL import Image
+import io
 from io import StringIO
 from django import forms
 from django.core.files import File
