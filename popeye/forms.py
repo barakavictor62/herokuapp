@@ -1,5 +1,5 @@
 from PIL import Image
-from StringIO import StringIO
+from io import io.StringIO
 from django import forms
 from django.core.files import File
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm, PasswordResetForm, PasswordChangeForm
