@@ -66,7 +66,7 @@ class ProfileInfo (forms.ModelForm):
         model = Profile
         fields = ('country','bio','profile_picture')
 
-    def save(self):
+    """def save(self):
         photo = super(ProfileInfo, self).save()
 
         country = self.cleaned_data.get('country')
@@ -79,7 +79,7 @@ class ProfileInfo (forms.ModelForm):
         image_file = StringIO()
         resized_image.save(image_file)
         image_field.file = image_file
-        return photo
+        return photo"""
 
 
 class resetForm(PasswordResetForm):
