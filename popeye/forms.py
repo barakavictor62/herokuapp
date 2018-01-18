@@ -71,9 +71,9 @@ class ProfileInfo (forms.ModelForm):
         country = self.cleaned_data.get('country')
         bio = self.cleaned_data.get('bio')
        
-        image = Image.open(photo.file)
+        image = Image.open(photo.profile_picture)
         resized_image = image.thumbnail((200, 200))
-        resized_image.save(photo.file.path)
+        resized_image.save(photo.profile_picture.path)
 
         return photo
 
