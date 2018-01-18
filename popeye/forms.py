@@ -63,6 +63,18 @@ class ProfileInfo (forms.ModelForm):
         model = Profile
         fields = ('country','bio','profile_picture')
 
+    def save(self):
+        photo = super(ProfileInfo, self).save()
+
+        country = self.cleaned_data.get('country')
+        bio = self.cleaned_data.get('bio')
+       
+        image = Image.open(photo.profile_picture)
+        resized_image = image.thumbnail((200, 200))
+        resized_image.save(photo.profile_picture.path)
+
+        return photo
+
 
 class resetForm(PasswordResetForm):
     email = forms.CharField(widget=forms.EmailInput(attrs={

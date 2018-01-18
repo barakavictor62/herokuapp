@@ -1,3 +1,4 @@
+from PIL import Image
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from popeye.forms import SignupForm, CheckOutForm, AnonContentRequestForm, ContentRequestForm, EmailForm, AnonWebsiteRequestForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
