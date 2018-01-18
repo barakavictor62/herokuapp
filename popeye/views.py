@@ -24,7 +24,8 @@ def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+            email = form.cleaned_data['email']
             return redirect('/login')
         else:
             return render(request, "signup.html",{'form': form})
