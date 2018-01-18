@@ -79,7 +79,7 @@ class ProfileInfo (forms.ModelForm):
         image_file = StringIO()
         resized_image.save(image_file)
         image_field.file = image_file
-        #return photo
+        return photo
 
 
 class resetForm(PasswordResetForm):
