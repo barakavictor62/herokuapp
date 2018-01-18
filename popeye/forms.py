@@ -1,4 +1,5 @@
 from PIL import Image
+import StringIO
 from django import forms
 from django.core.files import File
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm, PasswordResetForm, PasswordChangeForm
@@ -70,10 +71,13 @@ class ProfileInfo (forms.ModelForm):
 
         country = self.cleaned_data.get('country')
         bio = self.cleaned_data.get('bio')
+        image_field = self.cleaned_data.get('profile_picture')
+        image_file = StringIO.StringIO(image_field.read())
+        image = Image.open(image_file)
        
-        image = Image.open(photo.profile_picture)
-        resized_image = image.thumbnail((200, 200))
-        resized_image.save(photo.profile_picture.path)
+        resized_image = image.thumbnail((200, 200), Image.ANTIALIAS)
+        image_file = StringIO.StringIO()
+        resized_image.save(image_file)
 
         return photo
 
