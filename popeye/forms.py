@@ -1,5 +1,6 @@
 from PIL import Image
 from django import forms
+from django.core.files import File
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm, PasswordResetForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from popeye.models import Profile, ContentWriting, WebsiteBuilding, AnonContentWriting, AnonWebsiteBuilding
@@ -70,9 +71,9 @@ class ProfileInfo (forms.ModelForm):
         country = self.cleaned_data.get('country')
         bio = self.cleaned_data.get('bio')
        
-        image = Image.open(photo.profile_picture)
+        image = Image.open(photo.file)
         resized_image = image.thumbnail((200, 200))
-        resized_image.save(photo.profile_picture.path)
+        resized_image.save(photo.file.path)
 
         return photo
 
