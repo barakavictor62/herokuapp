@@ -1,5 +1,4 @@
 from PIL import Image
-import io
 from io import StringIO
 from django import forms
 from django.core.files import File
@@ -73,11 +72,11 @@ class ProfileInfo (forms.ModelForm):
         country = self.cleaned_data.get('country')
         bio = self.cleaned_data.get('bio')
         image_field = self.cleaned_data.get('profile_picture')
-        image_file = StringIO.StringIO(image_field.read())
+        image_file = StringIO(image_field.read())
         image = Image.open(image_file)
        
         resized_image = image.thumbnail((200, 200), Image.ANTIALIAS)
-        image_file = StringIO.StringIO()
+        image_file = StringIO()
         resized_image.save(image_file)
 
         return photo
