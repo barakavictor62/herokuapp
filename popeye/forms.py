@@ -1,7 +1,4 @@
-from PIL import Image
-from io import StringIO
 from django import forms
-from django.core.files import File
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm, PasswordResetForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from popeye.models import Profile, ContentWriting, WebsiteBuilding, AnonContentWriting, AnonWebsiteBuilding
@@ -65,22 +62,6 @@ class ProfileInfo (forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('country','bio','profile_picture')
-
-    """def save(self):
-        photo = super(ProfileInfo, self).save()
-
-        country = self.cleaned_data.get('country')
-        bio = self.cleaned_data.get('bio')
-        image_field = self.cleaned_data.get('profile_picture')
-        image_file = StringIO(image_field.read())
-        image = Image.open(image_file)
-       
-        resized_image = image.thumbnail((200, 200), Image.ANTIALIAS)
-        image_file = StringIO()
-        resized_image.save(image_file)
-        image_field.file = image_file
-        return photo"""
-
 
 class resetForm(PasswordResetForm):
     email = forms.CharField(widget=forms.EmailInput(attrs={
