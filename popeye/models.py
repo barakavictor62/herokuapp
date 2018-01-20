@@ -8,10 +8,10 @@ from django.dispatch import receiver
 #User.profile = property(lambda u: Profile.objects.get_or_create(user=u)[0])
 
 class Profile(models.Model):
-    def upload_to(instance, filename):
+    def upload_to(self, instance, filename):
         username = instance.user.username
         return 'user_profile_pictures/%s/%s' % (username, filename)
-    
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=255, blank=True)
     country = models.CharField(max_length=255, blank=True)
