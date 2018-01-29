@@ -18,7 +18,7 @@ class Profile(models.Model):
     profile_picture = models.ImageField(upload_to=upload_to, blank=True)
     Balance = models.CharField(max_length=255, default=0)
 
-    def save(self):
+    """"def save(self):
         super(Profile, self).save()
 
         image_file_path = str(self.profile_picture.path)
@@ -26,7 +26,7 @@ class Profile(models.Model):
        
         resized_image = image.thumbnail((200, 200), Image.ANTIALIAS)
         resized_image.save()
-        super(Profile, self).save()
+        super(Profile, self).save()"""
 
 
 
