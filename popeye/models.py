@@ -1,6 +1,6 @@
 from PIL import Image
 from django.db import models
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -11,7 +11,7 @@ def upload_to(instance, filename):
     username = instance.user.username
     return 'user_profile_pictures/%s/%s' % (username, filename)
 
-//User._meta.get_field('email')._unique = True
+#User._meta.get_field('email')._unique = True
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
