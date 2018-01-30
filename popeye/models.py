@@ -20,18 +20,6 @@ class Profile(models.Model):
     profile_picture = models.ImageField(upload_to=upload_to, blank=True)
     Balance = models.CharField(max_length=255, default=0)
 
-    """"def save(self):
-        super(Profile, self).save()
-
-        image_file_path = str(self.profile_picture.path)
-        image = Image.open(image_file_path)
-       
-        resized_image = image.thumbnail((200, 200), Image.ANTIALIAS)
-        resized_image.save()
-        super(Profile, self).save()"""
-
-
-
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
