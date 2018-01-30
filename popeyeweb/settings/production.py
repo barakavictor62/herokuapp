@@ -66,13 +66,13 @@ G_CLOUD_TYPE = os.environ.get('G_CLOUD_TYPE')
 # Application definition
 
 INSTALLED_APPS = [
-    'popeye.apps.PopeyeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'popeye.apps.PopeyeConfig',
     'storages'
 ]
 
