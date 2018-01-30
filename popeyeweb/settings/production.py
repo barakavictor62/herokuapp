@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import dj_database_url
-from google.oauth2 import service_account
+#from google.oauth2 import service_account
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,9 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = '
 #242k8t=tq72(549rjm%g$tay@%4q$ix=n5vy)l9qdo5%wbu*pw'
+
 SECRET_KEY = os.environ.get('SECRET_KEY')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-MAIL_USE_TLS=True
+MAIL_USE_TLS = True
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
@@ -66,7 +67,7 @@ G_CLOUD_TYPE = os.environ.get('G_CLOUD_TYPE')
 # Application definition
 
 INSTALLED_APPS = [
-    #'popeye.apps.PopeyeConfig',
+    'popeye.apps.PopeyeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,7 +79,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -166,20 +167,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIR = (
     os.path.join(BASE_DIR, 'other-static')
     )
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+"""STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'webdev-d38d8.appspot.com'
 GS_PROJECT_ID = os.environ.get('PROJECT_ID')
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'popeye/webdev-720fcea5c947.json')
-    )
-"""google.oauth2.credentials.Credentials(
-    private_key_id = os.environ.get('G_CLOUD_PRIVATE_KEY_ID'),
-    private_key = os.environ.get('G_CLOUD_PRIVATE_KEY'),
-    client_id = os.environ.get('G_CLIENT_ID'),
-    client_email = os.environ.get('G_CLIENT_EMAIL'),
-    token_uri = os.environ.get('G_TOKEN_URI'),
-    auth_uri = os.environ.get('G_AUTH_URI'),
-    auth_provider_x509_cert_url = os.environ.get('G_AUTH_PROVIDER_X509_CERT_URL'),
-    client_x509_cert_url = os.environ.get('G_CLIENT_X509_CERT_URL'),
-)"""
+    )"""
