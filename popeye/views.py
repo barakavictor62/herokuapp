@@ -1,4 +1,5 @@
 from PIL import Image
+from io import StringIO
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from popeye.forms import SignupForm, CheckOutForm, AnonContentRequestForm, ContentRequestForm, EmailForm, AnonWebsiteRequestForm, WebsiteRequestForm, ProfileInfo,PasswordChange, UserChange, resetForm
@@ -39,7 +40,7 @@ def edit_profile(request):
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
-            img = request.FILES['profile_picture']
+            img =  StringIO(request.FILES['profile_picture'].read())
             profpic = Image.open(img)
             profile.save()
             extra.save()
