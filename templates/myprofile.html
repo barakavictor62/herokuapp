@@ -15,10 +15,10 @@
           </div>
           <div class="col-lg-9">
             {% if user.is_authenticated %}
-            <h5>{{ user.first_name}} {{ user.last_name }}</h5>
+            <h5><b>{{ user.first_name}} {{ user.last_name }}</b></h5>
           <h5><b>{{ user.email }}</b></h5>
           {% if user.profile.country %}
-          <h5>{{ user.profile.country }}</h5>
+          <h5><b>{{ user.profile.country }}</b></h5>
           {%endif%}
           {% if user.profile.bio %}
           <p class="col-lg-5 rounded" id="bio">{{user.profile.bio}}</p>
