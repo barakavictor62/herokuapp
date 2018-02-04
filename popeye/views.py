@@ -40,7 +40,8 @@ def edit_profile(request):
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
-            img =  StringIO(request.FILES['profile_picture'].read())
+            file = request.FILES['profile_picture']
+            img =  StringIO(file.read())
             profpic = Image.open(img)
             profile.save()
             extra.save()
