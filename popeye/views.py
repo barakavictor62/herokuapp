@@ -40,9 +40,9 @@ def edit_profile(request):
         profile = UserChange(request.POST, instance=request.user)
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
-            imgfile = request.FILES['profile_picture']
-            img =  imgfile.temporary_file_path
-            profpic = Image.open(img)
+            imgfile = request.FILES['profile_picture'].file.name
+            #img =  imgfile.temporary_file_path
+            profpic = Image.open(imgfile)
             profile.save()
             extra.save()
             return redirect('/edit_profile')
