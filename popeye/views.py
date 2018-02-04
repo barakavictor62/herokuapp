@@ -41,7 +41,7 @@ def edit_profile(request):
         extra = ProfileInfo(request.POST, request.FILES, instance=request.user.profile)
         if profile.is_valid() and extra.is_valid():
             imgfile = request.FILES['profile_picture']
-            img =  imgfile
+            img =  imgfile.temporary_file_path
             profpic = Image.open(img)
             profile.save()
             extra.save()
