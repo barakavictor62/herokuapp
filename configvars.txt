@@ -1,0 +1,21 @@
+=== barakavictor62 Config Vars
+DATABASE_URL:                  postgres://oufprmsshlfxsy:288197d68417b1b5b9032a481ea22d732b6f0a2e491a42c5857128f8f0153cce@ec2-54-225-255-132.compute-1.amazonaws.com:5432/ddq54jm2747b92
+EMAIL_HOST:                    smtp.gmail.com
+EMAIL_HOST_PASSWORD:           Dynamoz2k14
+EMAIL_HOST_USER:               oyugavictor44@gmail.com
+EMAIL_PORT:                    587
+G_AUTH_PROVIDER_X509_CERT_URL: https://www.googleapis.com/oauth2/v1/certs
+G_AUTH_URI:                    https://accounts.google.com/o/oauth2/auth
+G_CLIENT_EMAIL:                victor@webdev-d38d8.iam.gserviceaccount.com
+G_CLIENT_ID:                   106219233590035603700
+G_CLIENT_X509_CERT_URL:        https://www.googleapis.com/robot/v1/metadata/x509/victor%40webdev-d38d8.iam.gserviceaccount.com
+G_CLOUD_PRIVATE_KEY:           -----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDcW+BuyrondUG6\nefmPXkCyl/YXfrVKVrlM2CnY8GLLoMWPdgxgqc9ZKfOxWRvqnrQdIn2j5ojlP9lg\ngf8C33+cX1Y/Xw3+Ghgvd9DCmJl0jcQplxfWM+hn7ARhz0CwV/yTAr7ve5grQohM\ntRSR5boHD93cE169HYd0yrXblyt/WL+fyT3h0AcXTThPSsGLr4CW6CZgMheOdr5B\nqtDZXCEm0awNJ3lcgY7U8QWGmPwFy+zKVsWMxG6NscJROgOtu9mICYEHOsAIQJba\nnCTOFd+cMYonoT9AYj+VG6jqQpEmeJMj4rCzn/KxGBwwX0HGJ+eli4/e+6hoeATB\nt6aGOyjRAgMBAAECggEANAvDQ4fAVgd84cVjazhQwZ3gswXrXcaD96FqqOGGBCBR\n6SNxovcYkS+2biHk1RJs6iC2WhreJH9jIUcy6wPMySs/XLJfxK93HOcIuJ2ASSYe\nudAFAkO6ValKE6v21G/DqRlR7ZBcjYMmXC+8zwTaXkaiGRO+IZ6y2qPyNg5LaMUm\nMjCBaIgVWFKXroqGyqVM7HAjO4ZHS52WrHQ6EsOyCBbuuPFDbapgGIGYPnw2V2K8\nNeCaeME3MklUfNWfjcs25YU0uyFu5J0JJoOZPC6rjb9oaV3YC3+m85pTQ9brSXsz\nYnCDFc/7I9SYvEo5lZ28dPj5efumG5qE96KT/yo8rQKBgQDvdG3Z3bSQ0/kyknQE\nANQ0WZCqSEVswUCVjj2yULSRrkD/xsYydMTCLS+/ajB0liKxJ+zI3Ns+03tdL7Y2\n9B7z8eMCDCY0waV3P74d0xnte36+eLpZ0Pbls/Ad6VnyRHzpjfTPdFVqBaReuwSw\n+JPZpJkVlfHDj7Y3eqXR2zlPKwKBgQDrlavwpIGjmt4iuj0kOjJY5VsQAM/LPEUO\nMFwoluGp5zEmQ+ZB2HnFz2+gk1AWhIgL+g4G6yg3Mcs+3+NaWqtB5Hmlyol0XoFc\nPh+S2bXPbEe49x8amdh/e+ZqAaZde5W816vumuFmMKQsDbDdpMn8VC2x2wF1MN0u\nJCoQ1uWJ8wKBgDuYl6qMol8VUsVCa/t/FVF+JSIsYJMDugY+454Ytgg3/VdranKu\nWzYUtviF/k9V+oZq8GTBixOk4OQ9drVQps+CGUSuL2gb9gmq5K9Zle9kOBRByeeG\nuZxL32wiYs+IOiqKuS5UvtlnVBR7qVw+UdXuQGd97TEF+IzwSorja+0HAoGAPRAX\neBF71MdAiqnRTUGUaTxRxS0gryIZGBtq1858AYj+UVfKKAkPTzl8SpfEa4HArbIL\nzrlHPD842jw39uSHfVXWPiXoSPRx/VHQ50Rs/q2nTYcoVcHIvwqDZ7izwYlV/5O7\naeZVRCKZex21WU3sWO4MxgvpLdITknEnQiQhbQcCgYEA7Shc6Qurp3RZmrm7maHK\nOspbTgAZMAM0x4ETp5QVjHc/zgCfs3C9rJRwm+sc5F5r5ennVMU3agN9IOUL1PG1\nEaayJ+jT6rnT8bOGXlRrxvy68/mJFSvu5ZbZ0j9B9ze1pk+ZnN0HMTvSlW1gSERI\n0QmQkt/IfIoBhKTH7nfGO5Q=\n-----END PRIVATE KEY-----\n
+G_CLOUD_PRIVATE_KEY_ID:        720fcea5c947b946f6096f6c37023ecdeeaaabad
+G_CLOUD_TYPE:                  service_account
+G_TOKEN_URI:                   https://accounts.google.com/o/oauth2/token
+HEROKU_POSTGRESQL_BLUE_URL:    postgres://ttlnyhbzzdnfox:5e365e3b67c4e53d8752362afd7966154d2aa0a3f1ef5a165ae47f7b9cc19360@ec2-54-227-250-33.compute-1.amazonaws.com:5432/ddfh6gsm5tj179
+Merchant_ID:                   ktrsrnw8knqs87mt
+PROJECT_ID:                    webdev-d38d8
+Private_Key:                   d6684854a87b008afcb1d4a2589482c1
+Public_Key:                    xp4frzrg8c5gzhh4
+SECRET_KEY:                    242k8t=tq72(549rjm%g@%4q=n5vy)l9qdo5%wbu*pw
