@@ -56,7 +56,9 @@
 }
 .share-holder{
   text-align: center;
-  border: thin solid;  
+  border: thin solid;
+  margin: 1vh;
+  height: 15vh;  
 }
 /*.misc, .footer{
   background-color: #343a40!important;/**#2c3e50;*
