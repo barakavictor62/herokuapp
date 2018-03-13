@@ -52,6 +52,7 @@
 /*....................................................................................................*/
 .share-holders{
   padding: 10vh 0 5vh 0;
+  border-top: solid thin gray;
  
 }
 .share-holder, .team-cards{
