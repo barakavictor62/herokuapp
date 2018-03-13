@@ -54,11 +54,11 @@
   padding: 10vh 0 5vh 0;
  
 }
-.share-holder{
+.share-holder, .team-cards{
   text-align: center;
-  border: thin solid;
+  /*border: thin solid;
   margin: 2vh;
-  height: 45vh;  
+  height: 45vh;  */
 }
 /*.misc, .footer{
   background-color: #343a40!important;/**#2c3e50;*
