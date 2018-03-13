@@ -64,6 +64,10 @@
     float:none;
     margin: 0 auto;
 }
+.deck-holder{
+    float: none;
+    margin: 0 auto;
+}
 /*.misc, .footer{
   background-color: #343a40!important;/**#2c3e50;*
 }*/
