@@ -52,10 +52,11 @@
 /*....................................................................................................*/
 .share-holders{
   padding: 10vh 0 5vh 0;
-  border: solid;
+ 
 }
 .share-holder{
   text-align: center;
+  border: thin solid;  
 }
 /*.misc, .footer{
   background-color: #343a40!important;/**#2c3e50;*
