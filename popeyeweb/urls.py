@@ -41,4 +41,5 @@ urlpatterns = [
     url(r'^contact$', views.contact),
     url(r'^edit_request$', views.edit_request),
     url(r'^articles_request$', views.articles_request),
+    url(r'^code$', views.code),
     ]

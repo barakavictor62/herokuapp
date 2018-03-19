@@ -15,6 +15,8 @@ import braintree
 
 def home(request):
     return render(request, "home.html", {})
+def code(request):
+    return render(request, 'button.html', {})
 
 @login_required(login_url='/login')
 def myprofile(request):
