@@ -87,7 +87,7 @@
             <div class="modal-body">
                 <form method="post">
                     {% csrf_token %}
-                    {% for field in form %}
+                    {% for field in password_change %}
                     {% if field.errors %}
                     {% for error in field.errors %}
                       <p class="text-danger">{{error}}</p>
