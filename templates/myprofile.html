@@ -4,7 +4,7 @@
   <div class="col-lg-12">
   <div class="card">
     <div class="card-body">
-      <div class="row">
+      <div class="row" id="profile-holder" style="background-color: black; color:white;">
         <div class="col-lg-3" id="user-profile-holder">
             {% if user.profile.profile_picture %}
                 <img class="img-fluid rounded" src="{{ user.profile.profile_picture.url }}">
@@ -16,7 +16,7 @@
           <div class="col-lg-9">
             {% if user.is_authenticated %}
             <h5><b>{{ user.first_name}} {{ user.last_name }}</b></h5>
-          <h5><b>{{ user.email }}</b></h5>
+            <h5><b>{{ user.email }}</b></h5>
           {% if user.profile.country %}
           <h5><b>{{ user.profile.country }}</b></h5>
           {%endif%}
