@@ -23,10 +23,7 @@ def myprofile(request):
     my_articles = ContentWriting.objects.filter(user_id=request.user.id)
     my_web_requests = WebsiteBuilding.objects.filter(user_id=request.user.id)
     password_change = PasswordChange()
-    return render(request, "myprofile.html", {
-        "my_articles":my_articles,
-        "my_web_requests":my_web_requests,
-        "password_change":password_change})
+    return render(request, "myprofile.html", {"my_articles":my_articles,"my_web_requests":my_web_requests,"password_change":password_change})
 
 def signup(request):
     if request.method == 'POST':
