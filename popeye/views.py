@@ -7,14 +7,22 @@ from .models import Profile, User, ContentWriting, WebsiteBuilding
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from decimal import Decimal
+from django.views import view
 import re
 import braintree
 
 
 # Create your views here.
+class home(view):
+    form_class = PasswordChange
+    template_name = "home.html"
+    def get(self, request):
+        return render(request, "home.html", {})
 
-def home(request):
-    return render(request, "home.html", {})
+
+
+""""def home(request):
+    return render(request, "home.html", {})"""
 def code(request):
     return render(request, 'button.html', {})
 

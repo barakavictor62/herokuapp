@@ -85,7 +85,7 @@
               </button>
             </div>
             <div class="modal-body">
-                <form method="post">
+                <form method="post" action="/passwordchange">
                     {% csrf_token %}
                     {% for field in password_change %}
                     {% if field.errors %}

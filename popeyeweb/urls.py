@@ -21,7 +21,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home),
+    url(r'^$', views.home.as_view()),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name='login'),
     url(r'^password_reset/$', auth_views.password_reset,{'template_name': 'password_reset.html','password_reset_form': resetForm}, name='password_reset'),
     url(r'^password_reset/done/$', auth_views.password_reset_done,{'template_name': 'password_reset_done.html'}, name='password_reset_done'),
