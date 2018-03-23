@@ -7,13 +7,13 @@ from .models import Profile, User, ContentWriting, WebsiteBuilding
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from decimal import Decimal
-from django.views import view
+from django.views import View
 import re
 import braintree
 
 
 # Create your views here.
-class home(view):
+class home(View):
     form_class = PasswordChange
     template_name = "home.html"
     def get(self, request):
