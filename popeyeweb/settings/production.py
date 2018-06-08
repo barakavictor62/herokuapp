@@ -168,8 +168,8 @@ STATICFILES_DIR = (
     )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'webdev-d38d8.appspot.com'
+GS_BUCKET_NAME = 'xxxxxxxxxxxxxxxxx'
 GS_PROJECT_ID = os.environ.get('PROJECT_ID')
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    os.path.join(BASE_DIR, 'popeye/webdev-720fcea5c947.json')
+    os.path.join(BASE_DIR, 'xxxxxxxxxxxxxxxxxx')
     )
