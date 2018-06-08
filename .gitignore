@@ -59,6 +59,8 @@ coverage.xml
 local_settings.py
 /popeyeweb/settings/base.py
 /popeyeweb/settings/local.py
+/popeye/webdev-d38d8.appspot.com
+/popeye/webdev-720fcea5c947.json
 
 # Flask stuff:
 instance/
