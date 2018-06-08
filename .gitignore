@@ -57,8 +57,8 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-base.py
-local.py
+/popeyeweb/settings/base.py
+/popeyeweb/settings/local.py
 
 # Flask stuff:
 instance/
